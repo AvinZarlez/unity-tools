@@ -1,7 +1,7 @@
 {
-	"name": "open-unity-docs",
-	"displayName": "Open Unity Documentation",
-	"description": "With one click go to Unity's online documentation for that Unity class",
+	"name": "unity-tools",
+	"displayName": "Unity Tools",
+	"description": "Various tools to help with Unity development",
 	"version": "0.0.1",
 	"publisher": "TobiahZ",
 	"engines": {
@@ -18,6 +18,10 @@
 		"commands": [{
 			"command": "extension.openUnityDocs",
 			"title": "Open Unity Documentation"
+		}],
+		"keybindings": [{
+			"key": "ctrl+'",
+			"command": "extension.openUnityDocs"
 		}]
 	},
 	"scripts": {

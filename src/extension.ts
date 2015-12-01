@@ -54,8 +54,12 @@ export function activate(context: vscode.ExtensionContext) {
 			return false;
 		}
 		
-		//If everything is good, open a web browser!
-		console.log("HHH "+line+" HHH");
+		//Everything looks good by this point, so time to open a web browser!
+		//Search URL: "http://docs.unity3d.com/ScriptReference/30_search.html?q="+line
+		
+		//Use the node module "open" to open a web browser
+		let open = require("open");
+		open("http://docs.unity3d.com/ScriptReference/30_search.html?q="+line);
 		
 	});
 	context.subscriptions.push(open_unity_docs);
