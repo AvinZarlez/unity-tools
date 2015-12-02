@@ -10,11 +10,18 @@ import * as assert from 'assert';
 import * as myExtension from '../src/search';
 
 // Defines a Mocha test suite to group tests of similar kind together
-suite("Extension Tests", () => {
+suite("Search.ts -> prepareInput", () => {
 
 	// Defines a Mocha unit test
-	test("Something 1", () => {
-		assert.equal(-1, [1, 2, 3].indexOf(5));
-		assert.equal(-1, [1, 2, 3].indexOf(0));
+	test("Check string AND whitespace trimming", () => {
+		assert.equal(myExtension.prepareInput("   abc   ", 2, 8),"abc");
+	});
+		
+	test("Check wrong input", () => {
+		assert.equal(myExtension.prepareInput("abc", 1,0),"");
+	});
+		
+	test("Check trims newline", () => {
+		assert.equal(myExtension.prepareInput("abc  \n       ",0, 8),"abc");
 	});
 });
