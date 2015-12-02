@@ -1,13 +1,24 @@
-# README
-## This is the README for your extension "unity-tools" 
-You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
+# Unity Tools for Visual Studio Code
+## What this extension is
 
-* Split the editor (`Cmd+\` on OSX or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on OSX or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (OSX) to see a list of Markdown snippets
+The goal of this extention is to add miscellaneous functionality to Visual Studio Code for Unity developers
 
-### For more information
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+## What this extension isn't
 
-** Enjoy!**
+This is not a comprehensive set of tools for Unity development, nor does it provide any debugging features.
+
+### Can you add XZY feature?
+
+Possibly! Let me know, I'd love to hear your suggestions on what tools you'd like to see added to this collection.
+
+## Feature list:
+### Open Unity Documentation
+Use the "Open Unity Documentation" command (`Cmd+'` on OSX or `Ctrl+'` on Windows and Linux) to open the Unity Documentation for the currently selected class.
+
+## Other resources
+
+Here are some other resources I recommend:
+
+* [Unity Development with VS Code](https://code.visualstudio.com/docs/runtimes/unity)
+* [VS Code Unity Debugger Extension Preview](http://forum.unity3d.com/threads/vs-code-unity-debugger-extension-preview.369775/)
+* [Tobiah Zarlez Blog](http://www.TobiahZ.com)
