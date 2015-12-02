@@ -4,13 +4,16 @@ import * as vscode from 'vscode';
 let open = require("open");
 let isAlphaNumeric = require("validate.io-alphanumeric")
 
+let search_blank_url 	= "http://docs.unity3d.com/ScriptReference/30_search.html";
+let search_url 			= search_blank_url+"?q=";
+
 function openDocErrorMessage (str) {
 	vscode.window.showErrorMessage("Error: "+str,"Open Docs").then(function (item) {
-				if (item === "Open Docs") {
-					open("http://docs.unity3d.com/ScriptReference/30_search.html");
-				}
-			};
-			return false;
+		if (item === "Open Docs") {
+			open(search_blank_url);
+		}
+	};
+	return false;
 }
 
 // this method is called when your extension is activated
@@ -53,10 +56,9 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 		
 		//Everything looks good by this point, so time to open a web browser!
-		//Search URL: "http://docs.unity3d.com/ScriptReference/30_search.html?q="+line
 		
 		//Use the node module "open" to open a web browser
-		open("http://docs.unity3d.com/ScriptReference/30_search.html?q="+line);
+		open(search_url+line);
 		
 	});
 	context.subscriptions.push(open_unity_docs);
@@ -66,7 +68,7 @@ export function activate(context: vscode.ExtensionContext) {
 			prompt: "Search the Unity Documentation:"
 		}).then((result) => {
 			//Use the node module "open" to open a web browser
-			open("http://docs.unity3d.com/ScriptReference/30_search.html?q="+result);
+			open(search_url+result);
 		});
 	});
 	context.subscriptions.push(search_unity_docs);
