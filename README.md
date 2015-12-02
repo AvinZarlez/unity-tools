@@ -1,6 +1,8 @@
 # Unity Tools for Visual Studio Code
 ## What this extension is
 
+This is an *unofficial* extention created by Tobiah Zarlez, and is not affiliated in any way with Unity Technologies. 
+
 The goal of this extention is to add miscellaneous functionality to Visual Studio Code for Unity developers
 
 ## What this extension isn't
