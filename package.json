@@ -46,7 +46,6 @@
     "vscode": "0.10.x"
   },
   "dependencies": {
-    "open": "^0.0.5",
-    "validate.io-alphanumeric": "^1.0.0"
+    "open": "^0.0.5"
   }
 }

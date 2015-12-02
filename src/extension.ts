@@ -2,7 +2,6 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode'; 
 let open = require("open");
-let isAlphaNumeric = require("validate.io-alphanumeric")
 
 let search_blank_url 	= "http://docs.unity3d.com/ScriptReference/30_search.html";
 let search_url 			= search_blank_url+"?q=";
@@ -51,11 +50,8 @@ export function activate(context: vscode.ExtensionContext) {
 		//Trim white space
 		line = line.trim();
 		
-		//Are there any non-alphanumeric characters?
-		if (!isAlphaNumeric(line)) {
-			openDocErrorMessage("Not a valid selection, please just select a class.");
-			return false;
-		}
+		//Possible future addition:
+		//Check right here if valid variable/function name to search?
 		
 		//Everything looks good by this point, so time to open a web browser!
 		
