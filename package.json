@@ -11,7 +11,8 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:extension.openUnityDocs"
+    "onCommand:extension.openUnityDocs",
+    "onCommand:extension.searchUnityDocs"
   ],
   "main": "./out/src/extension",
   "contributes": {
@@ -19,6 +20,10 @@
       {
         "command": "extension.openUnityDocs",
         "title": "Open Unity Documentation"
+      },
+      {
+        "command": "extension.searchUnityDocs",
+        "title": "Search Unity Documentation"
       }
     ],
     "keybindings": [
@@ -37,6 +42,7 @@
     "vscode": "0.10.x"
   },
   "dependencies": {
-    "open": "0.0.5"
+    "open": "0.0.5",
+    "validate.io-alphanumeric": "^1.0.0"
   }
 }

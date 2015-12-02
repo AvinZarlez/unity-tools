@@ -15,6 +15,9 @@ Possibly! Let me know, I'd love to hear your suggestions on what tools you'd lik
 ### Open Unity Documentation
 Use the "Open Unity Documentation" command (`Cmd+'` on OSX or `Ctrl+'` on Windows and Linux) to open the Unity Documentation for the currently selected class.
 
+### Search Unity Documentation
+Added the pallet command "Search Unity Documentation" where you can quickly enter whatever you want to search for.
+
 ## Other resources
 
 Here are some other resources I recommend:
