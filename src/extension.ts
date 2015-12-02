@@ -20,20 +20,22 @@ function openDocErrorMessage (str) {
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
+	//Tell the user the extension has started.
 	console.log('Unity Tools extension is now active!'); 
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with  registerCommand
-	// The commandId parameter must match the command field in package.json
-	var open_unity_docs = vscode.commands.registerTextEditorCommand("extension.openUnityDocs", (textEdtior: vscode.TextEditor, edit: vscode.TextEditorEdit) => {
-		let selection = [textEdtior.selections[0].start, textEdtior.selections[0].end];
+	// Open Unity Documentation, when you already have something you want to search selected
+	var open_unity_docs = vscode.commands.registerTextEditorCommand("extension.openUnityDocs",
+		(textEditor: vscode.TextEditor, edit: vscode.TextEditorEdit) => {
+		
+		// selection[0] is the start, and selection[1] is the end
+		let selection = [textEditor.selections[0].start, textEditor.selections[0].end];
 		
 		if ((selection[0].line != selection[1].line)) {
 			openDocErrorMessage("Multiple lines selected, please just select a class.");
 			return false;
 		}
+		
+		// If there is nothing, or the end is before the start
 		if ((selection[0].character >= selection[1].character)) {
 			
 			openDocErrorMessage("Nothing is selected. Please select a class!");
@@ -41,7 +43,7 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 		
 		//Get the whole line of code with the selection
-		let line = textEdtior.document.lineAt(selection[0].line).text;
+		let line = textEditor.document.lineAt(selection[0].line).text;
 		
 		//Slice to just the selection
 		line = line.slice(selection[0].character, selection[1].character);
