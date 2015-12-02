@@ -3,7 +3,7 @@
   "displayName": "Unity Tools",
   "description": "Various tools to help with Unity development",
   "version": "0.0.1",
-  "publisher": "TobiahZ",
+  "publisher": "Tobiah",
   "engines": {
     "vscode": "^0.10.1"
   },
