@@ -1,16 +1,12 @@
-import * as vscode from 'vscode'; 
-let open = require("open");
-
-let search_blank_url 	= "http://docs.unity3d.com/ScriptReference/30_search.html";
-let search_url 			= search_blank_url+"?q=";
+import * as vscode from 'vscode';
+import * as search from './search';
 
 function openDocErrorMessage (str) {
 	vscode.window.showErrorMessage("Error: "+str,"Open Docs").then(function (item) {
 		if (item === "Open Docs") {
-			open(search_blank_url);
+			search.openURL();
 		}
-	};
-	return false;
+	});
 }
 
 export function activate(context: vscode.ExtensionContext) {
@@ -21,39 +17,26 @@ export function activate(context: vscode.ExtensionContext) {
 	// Open Unity Documentation, when you already have something you want to search selected
 	var open_unity_docs = vscode.commands.registerTextEditorCommand("extension.openUnityDocs",
 		(textEditor: vscode.TextEditor, edit: vscode.TextEditorEdit) => {
-		
-		// selection[0] is the start, and selection[1] is the end
-		let selection = [textEditor.selections[0].start, textEditor.selections[0].end];
-		
-		if ((selection[0].line != selection[1].line)) {
-			openDocErrorMessage("Multiple lines selected, please just select a class.");
-			return false;
-		}
-		
-		// If there is nothing, or the end is before the start
-		if ((selection[0].character >= selection[1].character)) {
+				
+			// selection[0] is the start, and selection[1] is the end
+			let selection = textEditor.selection;
 			
-			openDocErrorMessage("Nothing is selected. Please select a class!");
-			return false;
-		}
+			if (!selection.isSingleLine) {
+				openDocErrorMessage("Multiple lines selected, please just select a class.");
+				return;
+			}
+			
+			// If there is nothing, or the end is before the start
+			if (selection.isEmpty) {
+				
+				openDocErrorMessage("Nothing is selected. Please select a class!");
+				return;
+			}
+			
+			//Get the whole line of code with the selection
+			let line = textEditor.document.lineAt(selection.start.line).text;
 		
-		//Get the whole line of code with the selection
-		let line = textEditor.document.lineAt(selection[0].line).text;
-		
-		//Slice to just the selection
-		line = line.slice(selection[0].character, selection[1].character);
-		
-		//Trim white space
-		line = line.trim();
-		
-		//Possible future addition:
-		//Check right here if valid variable/function name to search?
-		
-		//Everything looks good by this point, so time to open a web browser!
-		
-		//Use the node module "open" to open a web browser
-		open(search_url+line);
-		
+			search.openUnityDocs(line, selection.start.character, selection.end.character)
 	});
 	context.subscriptions.push(open_unity_docs);
 	
@@ -62,7 +45,7 @@ export function activate(context: vscode.ExtensionContext) {
 			prompt: "Search the Unity Documentation:"
 		}).then((result) => {
 			//Use the node module "open" to open a web browser
-			open(search_url+result);
+			search.openURL(result);
 		});
 	});
 	context.subscriptions.push(search_unity_docs);
