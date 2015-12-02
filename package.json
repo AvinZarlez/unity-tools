@@ -41,7 +41,7 @@
     "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
     "compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
     "pretest": "tsc",
-    "test": "mocha --ui tdd ./out/test/extension.test.js"
+    "test": "mocha --ui tdd ./out/test/search.test.js"
   },
   "devDependencies": {
     "typescript": "^1.6.2",
