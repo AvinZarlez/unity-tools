@@ -30,6 +30,10 @@
       {
         "key": "ctrl+'",
         "command": "extension.openUnityDocs"
+      },
+      {
+        "key": "ctrl+shift+'",
+        "command": "extension.searchUnityDocs"
       }
     ]
   },
