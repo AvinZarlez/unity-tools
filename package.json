@@ -2,7 +2,7 @@
   "name": "unity-tools",
   "displayName": "Unity Tools",
   "description": "Various tools to help with Unity development",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "Tobiah",
   "engines": {
     "vscode": "^0.10.1"
@@ -35,10 +35,12 @@
     "keybindings": [
       {
         "key": "ctrl+'",
+        "when": "editorTextFocus && editorLangId == 'csharp'",
         "command": "extension.openUnityDocs"
       },
       {
         "key": "ctrl+shift+'",
+        "when": "editorTextFocus && editorLangId == 'csharp'",
         "command": "extension.searchUnityDocs"
       }
     ]
