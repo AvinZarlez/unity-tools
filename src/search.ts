@@ -3,10 +3,12 @@ let search_url 			= search_blank_url+"?q=";
 
 //Open a URL using the npm module "open"
 let open = require("open");
-export function openURL (s?: string) {
-	if (!s) { s = search_blank_url; }
-	else { s = search_url+s; }
-	open(s);
+export function openURL (s?: string, not_searching?: boolean) {
+    if (not_searching) { open(s); } else {    
+	   if (!s) { s = search_blank_url; }
+	   else { s = search_url+s; }
+	   open(s);
+    }
 	return true;
 }
 

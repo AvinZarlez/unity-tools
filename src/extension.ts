@@ -51,4 +51,12 @@ export function activate(context: vscode.ExtensionContext) {
 		});
 	});
 	context.subscriptions.push(search_unity_docs);
+    
+	var open_vscode_unity_docs = vscode.commands.registerCommand("extension.openVSCodeUnityDocs",()=>{
+		// Using OpenURL from search to open VS Documentation.
+        // Passing "true" to open the URL directly (instead of searching Unity docs)
+        search.openURL("https://code.visualstudio.com/Docs/runtimes/unity", true);
+        
+	});
+	context.subscriptions.push(open_vscode_unity_docs);
 }
