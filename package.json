@@ -39,7 +39,7 @@
       },
       {
         "command": "extension.getUnityPluginAssetStore",
-        "title": "Get dotBunny's Unity plug-in from the Unity Asset Store"
+        "title": "Get Unity plug-in from the Unity Asset Store"
       }
     ],
     "keybindings": [
