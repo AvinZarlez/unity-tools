@@ -19,7 +19,8 @@
   "activationEvents": [
     "onCommand:extension.openUnityDocs",
     "onCommand:extension.searchUnityDocs",
-    "onCommand:extension.openVSCodeUnityDocs"
+    "onCommand:extension.openVSCodeUnityDocs",
+    "onCommand:extension.getUnityPluginAssetStore"
   ],
   "main": "./out/src/extension",
   "contributes": {
@@ -35,6 +36,10 @@
       {
         "command": "extension.openVSCodeUnityDocs",
         "title": "Open VSCode Unity Documentation"
+      },
+      {
+        "command": "extension.getUnityPluginAssetStore",
+        "title": "Get dotBunny's Unity plug-in from the Unity Asset Store"
       }
     ],
     "keybindings": [

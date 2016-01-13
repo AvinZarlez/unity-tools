@@ -59,4 +59,20 @@ export function activate(context: vscode.ExtensionContext) {
         
 	});
 	context.subscriptions.push(open_vscode_unity_docs);
+
+	var get_unity_plugin_assetstore = vscode.commands.registerCommand("extension.getUnityPluginAssetStore",()=>{
+		search.openURL("http://u3d.as/jmM", true);
+        return vscode.window.showErrorMessage("Add to your Unity project, and remember check \"Enable Integration\"","How To","Git").then((item) => {
+		  if (item === "How To") {
+			// Using OpenURL from search to open Unity plug-in Documentation in git repo.
+            // Passing "true" to open the URL directly (instead of searching Unity docs)
+            search.openURL("https://github.com/dotBunny/VSCode/blob/master/HOWTO.pdf",true);
+		  } else if (item === "Git") {
+			// Using OpenURL from search to open Unity plug-in git repo.
+            // Passing "true" to open the URL directly (instead of searching Unity docs)
+            search.openURL("https://github.com/dotBunny/VSCode/",true);
+          }
+	    });
+	});
+	context.subscriptions.push(get_unity_plugin_assetstore);
 }
