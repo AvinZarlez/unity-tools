@@ -10,3 +10,9 @@ install:
  - "npm install -g typescript"
  - "npm install -g mocha"
  - "npm install"
+ 
+deploy:
+  provider: script
+  script: scripts/deploy.sh
+  on:
+    branch: master
