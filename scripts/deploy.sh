@@ -8,5 +8,5 @@ if [[ "$TRAVIS_TAG" == "v"* ]]; then
 else
     echo "Build not tagged, not deploying"
     echo "Build tag :"
-    echo $TRAVIS_TAG
+    echo "$TRAVIS_TAG"
 fi
