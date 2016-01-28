@@ -16,6 +16,14 @@
   "categories": [
     "Other"
   ],
+  "bugs": "https://github.com/TobiahZ/unity-tools/issues",
+  "keywords": [
+    "unity",
+    "unity3d",
+    "docs",
+    "documentation",
+    "asset store"
+  ],
   "activationEvents": [
     "onCommand:extension.openUnityDocs",
     "onCommand:extension.searchUnityDocs",

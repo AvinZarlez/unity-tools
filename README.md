@@ -10,6 +10,8 @@ The goal of this extention is to add miscellaneous functionality to Visual Studi
 
 This is not a comprehensive set of tools for Unity development, nor does it provide any debugging features.
 
+If you want to debug your Unity projects, I would recommend getting [Unity's official debugger for Visual Studio Code](https://github.com/Unity-Technologies/vscode-unity-debug).
+
 ### Can you add XZY feature?
 
 Possibly! Let me know, I'd love to hear your suggestions on what tools you'd like to see added to this collection.
@@ -31,8 +33,7 @@ Added the pallet command "Get Unity plug-in from the Unity Asset Store" to open 
 
 Here are some other resources I recommend:
 
-
 * [Unity Development with VS Code](https://code.visualstudio.com/docs/runtimes/unity)
 * [dotBunny's Unity plug-in for Visual Studio Code support](https://github.com/dotBunny/VSCode/) - [Asset Store Link](http://u3d.as/jmM)
-* [VS Code Unity Debugger Extension Preview](http://forum.unity3d.com/threads/vs-code-unity-debugger-extension-preview.369775/)
+* [Unity's official debugger for Visual Studio Code](https://github.com/Unity-Technologies/vscode-unity-debug)
 * [Tobiah Zarlez Blog](http://www.TobiahZ.com)
