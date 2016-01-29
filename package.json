@@ -25,41 +25,41 @@
     "asset store"
   ],
   "activationEvents": [
-    "onCommand:extension.openUnityDocs",
-    "onCommand:extension.searchUnityDocs",
-    "onCommand:extension.openVSCodeUnityDocs",
-    "onCommand:extension.getUnityPluginAssetStore"
+    "onCommand:extension.unityOpenDocs",
+    "onCommand:extension.unitySearchDocs",
+    "onCommand:extension.unityOpenVSCodeDocs",
+    "onCommand:extension.unityGetAssetStorePlugin"
   ],
   "main": "./out/src/extension",
   "contributes": {
     "commands": [
       {
-        "command": "extension.openUnityDocs",
-        "title": "Open Unity Documentation"
+        "command": "extension.unityOpenDocs",
+        "title": "Unity: Open Documentation"
       },
       {
-        "command": "extension.searchUnityDocs",
-        "title": "Search Unity Documentation"
+        "command": "extension.unitySearchDocs",
+        "title": "Unity: Search Documentation"
       },
       {
-        "command": "extension.openVSCodeUnityDocs",
-        "title": "Open VSCode Unity Documentation"
+        "command": "extension.unityOpenVSCodeDocs",
+        "title": "Unity: Open VSCode Documentation"
       },
       {
-        "command": "extension.getUnityPluginAssetStore",
-        "title": "Get Unity plug-in from the Unity Asset Store"
+        "command": "extension.unityGetAssetStorePlugin",
+        "title": "Unity: Get VSCode plug-in from the Asset Store"
       }
     ],
     "keybindings": [
       {
         "key": "ctrl+'",
         "when": "editorTextFocus && editorLangId == 'csharp'",
-        "command": "extension.openUnityDocs"
+        "command": "extension.unityOpenDocs"
       },
       {
         "key": "ctrl+shift+'",
         "when": "editorTextFocus && editorLangId == 'csharp'",
-        "command": "extension.searchUnityDocs"
+        "command": "extension.unitySearchDocs"
       }
     ]
   },

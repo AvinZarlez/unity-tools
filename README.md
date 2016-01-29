@@ -17,17 +17,18 @@ If you want to debug your Unity projects, I would recommend getting [Unity's off
 Possibly! Let me know, I'd love to hear your suggestions on what tools you'd like to see added to this collection.
 
 ## Feature list:
-### Open Unity Documentation
-Use the pallet command "Open Unity Documentation" (`Cmd+'` on OSX or `Ctrl+'` on Windows and Linux) to open the Unity Documentation for the currently selected class.
 
-### Search Unity Documentation
-Use the pallet command "Search Unity Documentation" (Shortcut: `Cmd+Shift+'` on OSX or `Ctrl+Shift+'` on Windows and Linux) where you can quickly enter whatever you want to search for.
+### Command: Open Documentation
+Use the pallet command "Unity: Open Documentation" (`Cmd+'` on OSX or `Ctrl+'` on Windows and Linux) to open the Unity Documentation for the currently selected class.
 
-### Open VSCode Unity Documentation
-Added the pallet command "Open VSCode Unity Documentation" to open the [Unity Development with VS Code](https://code.visualstudio.com/docs/runtimes/unity) page on the Visual Studio Code Documentation.
+### Command: Search Documentation
+Use the pallet command "Unity: Search Documentation" (Shortcut: `Cmd+Shift+'` on OSX or `Ctrl+Shift+'` on Windows and Linux) where you can quickly enter whatever you want to search for.
 
-### Get Unity plug-in from the Unity Asset Store
-Added the pallet command "Get Unity plug-in from the Unity Asset Store" to open [dotBunny's Unity plug-in](https://github.com/dotBunny/VSCode/) on the [Unity Asset Store](http://u3d.as/jmM). Afterwards, will display a message with a link to the [How-To](https://github.com/dotBunny/VSCode/blob/master/HOWTO.pdf) and the Git repo for the project.
+### Command: Open VSCode Documentation
+Added the pallet command "Unity: Open VSCode Documentation" to open the [Unity Development with VS Code](https://code.visualstudio.com/docs/runtimes/unity) page on the Visual Studio Code Documentation.
+
+### Command: Get VSCode plug-in from the Asset Store
+Added the pallet command "Unity: Get VSCode plug-in from the Asset Store" to open [dotBunny's Unity plug-in](https://github.com/dotBunny/VSCode/) on the [Unity Asset Store](http://u3d.as/jmM). Afterwards, will display a message with a link to the [How-To](https://github.com/dotBunny/VSCode/blob/master/HOWTO.pdf) and the Git repo for the project.
 
 ## Other resources
 

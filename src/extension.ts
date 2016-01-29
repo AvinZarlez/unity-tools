@@ -15,7 +15,7 @@ export function activate(context: vscode.ExtensionContext) {
 	console.log('Unity Tools extension is now active!'); 
 
 	// Open Unity Documentation, when you already have something you want to search selected
-	var open_unity_docs = vscode.commands.registerTextEditorCommand("extension.openUnityDocs",
+	var open_docs = vscode.commands.registerTextEditorCommand("extension.unityOpenDocs",
 		(textEditor: vscode.TextEditor, edit: vscode.TextEditorEdit) => {
 				
 			// selection[0] is the start, and selection[1] is the end
@@ -38,9 +38,9 @@ export function activate(context: vscode.ExtensionContext) {
 		
 			search.openUnityDocs(line, selection.start.character, selection.end.character)
 	});
-	context.subscriptions.push(open_unity_docs);
+	context.subscriptions.push(open_docs);
 	
-	var search_unity_docs = vscode.commands.registerCommand("extension.searchUnityDocs",()=>{
+	var search_docs = vscode.commands.registerCommand("extension.unitySearchDocs",()=>{
 		vscode.window.showInputBox({
 			prompt: "Search the Unity Documentation:"
 		}).then((result) => {
@@ -50,17 +50,17 @@ export function activate(context: vscode.ExtensionContext) {
 			}
 		});
 	});
-	context.subscriptions.push(search_unity_docs);
+	context.subscriptions.push(search_docs);
     
-	var open_vscode_unity_docs = vscode.commands.registerCommand("extension.openVSCodeUnityDocs",()=>{
+	var open_vscode_docs = vscode.commands.registerCommand("extension.unityOpenVSCodeDocs",()=>{
 		// Using OpenURL from search to open VS Documentation.
         // Passing "true" to open the URL directly (instead of searching Unity docs)
         search.openURL("https://code.visualstudio.com/Docs/runtimes/unity", true);
         
 	});
-	context.subscriptions.push(open_vscode_unity_docs);
+	context.subscriptions.push(open_vscode_docs);
 
-	var get_unity_plugin_assetstore = vscode.commands.registerCommand("extension.getUnityPluginAssetStore",()=>{
+	var get_assetstore_plugin = vscode.commands.registerCommand("extension.unityGetAssetStorePlugin",()=>{
 		search.openURL("http://u3d.as/jmM", true);
         return vscode.window.showErrorMessage("Add to your Unity project, and remember check \"Enable Integration\"","How To","Git").then((item) => {
 		  if (item === "How To") {
@@ -74,5 +74,5 @@ export function activate(context: vscode.ExtensionContext) {
           }
 	    });
 	});
-	context.subscriptions.push(get_unity_plugin_assetstore);
+	context.subscriptions.push(get_assetstore_plugin);
 }
