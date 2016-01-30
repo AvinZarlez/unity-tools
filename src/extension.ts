@@ -2,6 +2,8 @@ import * as vscode from 'vscode';
 import * as search from './search';
 import * as directories from './directories';
 
+let fs = require('fs-extra');
+
 function openDocErrorMessage (str) {
 	return vscode.window.showErrorMessage("Error: " + str, "Open Docs").then((item) => {
 		if (item === "Open Docs") {
@@ -79,13 +81,17 @@ export function activate(context: vscode.ExtensionContext) {
     
     var create_Directories = vscode.commands.registerCommand("extension.unityCreateDirectories", () => {
         var rootPath = vscode.workspace.rootPath + '/Assets/';
-        if (vscode.workspace.rootPath == undefined || rootPath == undefined) {
-            vscode.window.showErrorMessage("You are not in the proper Project Folder");
-        }
-        else{
-            directories.GenerateOrganizationFolders(rootPath); 
-        }
-    
+        fs.stat(rootPath, (err, stats) => {
+            if (err && err.code === 'ENOENT') {
+                // The folder does not exist
+                vscode.window.showErrorMessage("Could not Find an Assets Folder in your Unity Project: " + err)
+            } else if (err) {
+                vscode.window.showErrorMessage("When checking if the Asset folder exists: " + err)
+            } else if (stats.isDirectory()) {
+                // Already exists! Do your thing.
+                directories.GenerateOrganizationFolders(rootPath); 
+            }
+        });
     });
     context.subscriptions.push(create_Directories);  
    
