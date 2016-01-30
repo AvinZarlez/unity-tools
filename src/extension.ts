@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
 import * as search from './search';
+import * as directories from './directories';
 
 function openDocErrorMessage (str) {
 	return vscode.window.showErrorMessage("Error: " + str, "Open Docs").then((item) => {
@@ -75,4 +76,17 @@ export function activate(context: vscode.ExtensionContext) {
 	    });
 	});
 	context.subscriptions.push(get_assetstore_plugin);
+    
+    var create_Directories = vscode.commands.registerCommand("extension.unityCreateDirectories", () => {
+        var rootPath = vscode.workspace.rootPath + '/Assets/';
+        if (vscode.workspace.rootPath == undefined || rootPath == undefined) {
+            vscode.window.showErrorMessage("You are not in the proper Project Folder");
+        }
+        else{
+            directories.GenerateOrganizationFolders(rootPath); 
+        }
+    
+    });
+    context.subscriptions.push(create_Directories);  
+   
 }
