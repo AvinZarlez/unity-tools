@@ -1,7 +1,7 @@
 
 let fs = require('fs-extra');
 
-var folders: Array<string> = ['Scripts', 'Scenes', 'Prefabs', 'Materials', 'Textures'];
+var folders: Array<string> = ['Scripts', 'Scenes', 'Prefabs', 'Materials', 'Textures', 'Audio'];
 
 export function GenerateOrganizationFolders(path: string)
 {

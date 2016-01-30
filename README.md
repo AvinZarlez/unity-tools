@@ -38,6 +38,17 @@ Added the pallet command "Unity: Open VSCode Documentation" to open the [Unity D
 ### Command: Get VSCode plug-in from the Asset Store
 Added the pallet command "Unity: Get VSCode plug-in from the Asset Store" to open [dotBunny's Unity plug-in](https://github.com/dotBunny/VSCode/) on the [Unity Asset Store](http://u3d.as/jmM). Afterwards, will display a message with a link to the [How-To](https://github.com/dotBunny/VSCode/blob/master/HOWTO.pdf) and the Git repo for the project.
 
+### Command: Get VSCode plug-in from the Asset Store
+Added the pallet command "Unity: Generate Organizational Folders" to create some default organizational folders to your project's Assets Folder. The list of default folders are below: 
+* Scenes 
+* Scripts 
+* Prefabs 
+* Materials 
+* Textures 
+* Audio 
+
+
+
 ## Other resources
 
 Here are some other resources I recommend:
