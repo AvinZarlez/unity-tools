@@ -28,7 +28,8 @@
     "onCommand:extension.unityOpenDocs",
     "onCommand:extension.unitySearchDocs",
     "onCommand:extension.unityOpenVSCodeDocs",
-    "onCommand:extension.unityGetAssetStorePlugin"
+    "onCommand:extension.unityGetAssetStorePlugin",
+    "onCommand:extension.unityCreateDirectories"
   ],
   "main": "./out/src/extension",
   "contributes": {
@@ -48,6 +49,10 @@
       {
         "command": "extension.unityGetAssetStorePlugin",
         "title": "Unity: Get VSCode plug-in from the Asset Store"
+      },
+      {
+        "command": "extension.unityCreateDirectories",
+        "title": "Unity: Generate Organizational Folders"
       }
     ],
     "keybindings": [
@@ -77,6 +82,7 @@
     "vscode": "^0.11.x"
   },
   "dependencies": {
+    "fs-extra": "^0.26.5",
     "open": "^0.0.5"
   },
   "icon": "unity-logo.png"
