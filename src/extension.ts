@@ -84,9 +84,10 @@ export function activate(context: vscode.ExtensionContext) {
         fs.stat(rootPath, (err, stats) => {
             if (err && err.code === 'ENOENT') {
                 // The folder does not exist
-                vscode.window.showErrorMessage("Could not Find an Assets Folder in your Unity Project: " + err)
+                vscode.window.showErrorMessage("Could not Find an Assets Folder in your Unity Project.");
+                console.log(err);
             } else if (err) {
-                vscode.window.showErrorMessage("When checking if the Asset folder exists: " + err)
+                vscode.window.showErrorMessage("Something went wrong while checking Assets folder existance: " + err)
             } else if (stats.isDirectory()) {
                 // Already exists! Do your thing.
                 directories.GenerateOrganizationFolders(rootPath); 
