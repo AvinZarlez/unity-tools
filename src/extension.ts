@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 import * as search from './search';
 import * as directories from './directories';
 
-let fs = require('fs-extra');
+let fs = require('fs');
 
 function openDocErrorMessage (str) {
 	return vscode.window.showErrorMessage("Error: " + str, "Open Docs").then((item) => {
@@ -80,9 +80,9 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(get_assetstore_plugin);
     
     var create_Directories = vscode.commands.registerCommand("extension.unityCreateDirectories", () => {
-		
-        var rootPath = vscode.workspace.rootPath + '/Assets/';
-		if(rootPath !== '' || rootPath !== undefined) { 
+		     
+		if(vscode.workspace.rootPath !== undefined) { 
+            var rootPath = vscode.workspace.rootPath + '/Assets/';
 			//path exists
 			fs.stat(rootPath, (err, stats) => {
 				if (err && err.code === 'ENOENT') {
@@ -92,11 +92,14 @@ export function activate(context: vscode.ExtensionContext) {
 				} else if (err) {
 					vscode.window.showErrorMessage("Something went wrong while checking Assets folder existance: " + err)
 				} else if (stats.isDirectory()) {
-					// Already exists! Do your thing.
+					// Folder exists! Generate default folders. 
 					directories.GenerateOrganizationFolders(rootPath); 
+                    vscode.window.showInformationMessage("Folders Genereated Sucessfully");
 				}
         	});
-		}
+		}else{
+            vscode.window.showErrorMessage("Your current folder location is undefined. Please open Unity Project.");
+        }
     });
     context.subscriptions.push(create_Directories);  
    
