@@ -53,11 +53,13 @@
     "keybindings": [
       {
         "key": "ctrl+'",
+        "mac": "cmd+'",
         "when": "editorTextFocus && editorLangId == 'csharp'",
         "command": "extension.unityOpenDocs"
       },
       {
         "key": "ctrl+shift+'",
+        "mac": "cmd+shift+'",
         "when": "editorTextFocus && editorLangId == 'csharp'",
         "command": "extension.unitySearchDocs"
       }
