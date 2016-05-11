@@ -16,6 +16,14 @@ If you want to debug your Unity projects, I would recommend getting [Unity's off
 
 Possibly! Let me know, I'd love to hear your suggestions on what tools you'd like to see added to this collection.
 
+## How to install
+
+You can install this extension directly from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=Tobiah.unity-tools).
+
+Launch VS Code Quick Open (Ctrl+P) and copy/paste the following command:
+
+> ext install unity-tools
+
 ## Feature list:
 
 ### Command: Open Documentation
