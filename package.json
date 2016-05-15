@@ -83,6 +83,7 @@
   },
   "dependencies": {
     "fs-extra": "^0.26.5",
+    "mkdirs": "0.0.2",
     "open": "^0.0.5"
   },
   "icon": "unity-logo.png"
