@@ -78,29 +78,40 @@ export function activate(context: vscode.ExtensionContext) {
 	    });
 	});
 	context.subscriptions.push(get_assetstore_plugin);
+	
     
     var create_Directories = vscode.commands.registerCommand("extension.unityCreateDirectories", () => {
-		     
-		if(vscode.workspace.rootPath !== undefined) { 
-            var rootPath = vscode.workspace.rootPath + '/Assets/';
-			//path exists
+		var rootPath = vscode.workspace.rootPath;
+		if(rootPath != undefined){
+			console.log("rootpath "+ rootPath);
 			fs.stat(rootPath, (err, stats) => {
-				if (err && err.code === 'ENOENT') {
-					// The folder does not exist
-					vscode.window.showErrorMessage("Could not Find an Assets Folder in your Unity Project.");
-					console.log(err);
-				} else if (err) {
-					vscode.window.showErrorMessage("Something went wrong while checking Assets folder existance: " + err)
+				if(err && err.code === 'ENOENT'){
+					console.log("no folder open");
+					vscode.window.showErrorMessage("You do not have a Unity Root Folder open in VSCode. Please 'Open Folder' to a root folder of the desired Unity Project first.");
 				} else if (stats.isDirectory()) {
-					// Folder exists! Generate default folders. 
-					directories.GenerateOrganizationFolders(rootPath); 
-                    vscode.window.showInformationMessage("Folders Genereated Sucessfully");
+					var rootPath = vscode.workspace.rootPath + '/Assets/';
+					//path exists
+					fs.stat(rootPath, (err, stats) => {
+						if (err && err.code === 'ENOENT') {
+							// The folder does not exist
+							vscode.window.showErrorMessage("Could not Find an Assets Folder in the current workspace of VSCode. Please open the Unity root folder of the project you are working on.");
+							console.log(err);
+						} else if (err) {
+							vscode.window.showErrorMessage("Something went wrong while checking Assets folder existance: " + err)
+						} else if (stats.isDirectory()) {
+							// Folder exists! Generate default folders. 
+							directories.GenerateOrganizationFolders(rootPath); 
+							vscode.window.showInformationMessage("Folders Genereated Sucessfully");
+						}
+					});
 				}
-        	});
+			});
 		}else{
-            vscode.window.showErrorMessage("Your current folder location is undefined. Please open Unity Project.");
-        }
-    });
+			vscode.window.showErrorMessage("You do not have a workspace open in VSCode. Please 'Open Folder' to the root folder of a desired Unity Project.");
+		}
+		
+	});     
     context.subscriptions.push(create_Directories);  
+	
    
 }

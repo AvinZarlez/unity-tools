@@ -2,9 +2,16 @@
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
     "version": "0.1.0",
-    "command": "tsc",
+    "command": "npm",
     "isShellCommand": true,
-    "args": ["-p", "."],
-    "showOutput": "silent",
-    "problemMatcher": "$tsc"
-}
+    "showOutput": "always",
+    "suppressTaskName": true,
+    	// we run the custom script "compile" as defined in package.json
+	"args": ["run", "compile", "--loglevel", "silent"],
+
+	// The tsc compiler is started in watching mode
+	"isWatching": true,
+
+	// use the standard tsc in watch mode problem matcher to find compile problems in the output.
+	"problemMatcher": "$tsc-watch"
+} 
