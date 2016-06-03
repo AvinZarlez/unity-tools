@@ -38,15 +38,23 @@ Added the pallet command "Unity: Open VSCode Documentation" to open the [Unity D
 ### Command: Get VSCode plug-in from the Asset Store
 Added the pallet command "Unity: Get VSCode plug-in from the Asset Store" to open [dotBunny's Unity plug-in](https://github.com/dotBunny/VSCode/) on the [Unity Asset Store](http://u3d.as/jmM). Afterwards, will display a message with a link to the [How-To](https://github.com/dotBunny/VSCode/blob/master/HOWTO.pdf) and the Git repo for the project.
 
-### Command: Get VSCode plug-in from the Asset Store
+### Command: Generate Organizational Folders
 Added the pallet command "Unity: Generate Organizational Folders" to create some default organizational folders to your project's Assets Folder. The list of default folders are below: 
 * Scenes 
 * Scripts 
 * Prefabs 
-* Materials 
-* Textures 
+* Materials  
 * Audio 
 
+### Configuration
+The Unity-Tools command Generate Organizational Folders can be configured to create a set of folders of your choosing, instead of the 5 default ones: Scenes, Scripts, Prefabs, Materials, and Audio. 
+To do this simply open or create `./.vscode/settings.json` and fill in the following fields:
+
+```json
+{
+    "unity.setDefaultOrganizationFolders" : ["Your","New", "Folder","Names"]
+}
+```
 
 
 ## Other resources

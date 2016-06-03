@@ -70,6 +70,22 @@
       }
     ]
   },
+  "configuration": {
+    "type": "object",
+    "title": "Unity-Tools Settings",
+    "properties": {
+      "unity.setDefaultOrganizationFolders": {
+        "type": "array",
+        "default": [
+          "Materials",
+          "Scenes",
+          "Scripts",
+          "Prefabs"
+        ], 
+        "description": "Sets which folders will be generated from the unity.GenerateOrganizationFolders command"
+      }
+    }
+  },
   "scripts": {
     "postinstall": "node ./node_modules/vscode/bin/install",
     "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
@@ -82,8 +98,6 @@
     "vscode": "^0.11.x"
   },
   "dependencies": {
-    "fs-extra": "^0.26.5",
-    "mkdirs": "0.0.2",
     "open": "^0.0.5"
   },
   "icon": "unity-logo.png"

@@ -83,25 +83,22 @@ export function activate(context: vscode.ExtensionContext) {
     var create_Directories = vscode.commands.registerCommand("extension.unityCreateDirectories", () => {
 		var rootPath = vscode.workspace.rootPath;
 		if(rootPath != undefined){
-			console.log("rootpath "+ rootPath);
 			fs.stat(rootPath, (err, stats) => {
 				if(err && err.code === 'ENOENT'){
-					console.log("no folder open");
-					vscode.window.showErrorMessage("You do not have a Unity Root Folder open in VSCode. Please 'Open Folder' to a root folder of the desired Unity Project first.");
+					vscode.window.showErrorMessage("You do not have access or permission to this file on the hard drive.");
 				} else if (stats.isDirectory()) {
 					var rootPath = vscode.workspace.rootPath + '/Assets/';
 					//path exists
 					fs.stat(rootPath, (err, stats) => {
 						if (err && err.code === 'ENOENT') {
 							// The folder does not exist
-							vscode.window.showErrorMessage("Could not Find an Assets Folder in the current workspace of VSCode. Please open the Unity root folder of the project you are working on.");
-							console.log(err);
+							vscode.window.showErrorMessage("Could not find an Assets Folder in the current workspace of VSCode. Please open the Unity root folder of the project you are working on.");
 						} else if (err) {
-							vscode.window.showErrorMessage("Something went wrong while checking Assets folder existance: " + err)
+							vscode.window.showErrorMessage("Something went wrong while checking Assets folder existence: " + err)
 						} else if (stats.isDirectory()) {
 							// Folder exists! Generate default folders. 
 							directories.GenerateOrganizationFolders(rootPath); 
-							vscode.window.showInformationMessage("Folders Genereated Sucessfully");
+							vscode.window.showInformationMessage("Folders generated sucessfully");
 						}
 					});
 				}
