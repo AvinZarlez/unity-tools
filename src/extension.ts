@@ -20,27 +20,26 @@ export function activate(context: vscode.ExtensionContext) {
 				
 			// selection[0] is the start, and selection[1] is the end
 			let selection = textEditor.selection;
-
 			if (!selection.isSingleLine) {
 				openDocErrorMessage("Multiple lines selected, please just select a class.");
 				return;
 			}
 			
 			let range = undefined;
-
 			if (!selection.isEmpty) {
 				// selection is not empty, get text from it
 				range = new vscode.Range(selection.start, selection.end);
 			} else {
-				// selection is empty, check get any word at cursor
+				// selection is empty, get any word at cursor
 				range = textEditor.document.getWordRangeAtPosition(selection.active);
 			}
 
-			if (range != undefined) {
-				search.openUnityDocs(textEditor.document.lineAt(range.start.line).text, range.start.character, range.end.character);
-			} else {
+			if (range == undefined) {
 				openDocErrorMessage("Nothing is selected. Please select a class!");
+				return;
 			}
+
+			search.openUnityDocs(textEditor.document.lineAt(range.start.line).text, range.start.character, range.end.character);
 	});
 	context.subscriptions.push(open_docs);
 	
