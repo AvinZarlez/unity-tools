@@ -52,7 +52,7 @@ To do this simply open or create `./.vscode/settings.json` and fill in the follo
 
 ```json
 {
-    "unity.setDefaultOrganizationFolders" : ["Your","New", "Folder","Names"]
+    "unity.defaultOrganizationFolders" : ["Your","New", "Folder","Names"]
 }
 ```
 
