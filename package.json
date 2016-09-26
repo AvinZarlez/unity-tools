@@ -25,33 +25,33 @@
     "asset store"
   ],
   "activationEvents": [
-    "onCommand:extension.unityOpenDocs",
-    "onCommand:extension.unitySearchDocs",
-    "onCommand:extension.unityOpenVSCodeDocs",
-    "onCommand:extension.unityGetAssetStorePlugin",
-    "onCommand:extension.unityCreateDirectories"
+    "onCommand:unity.OpenDocs",
+    "onCommand:unity.SearchDocs",
+    "onCommand:unity.OpenVSCodeDocs",
+    "onCommand:unity.GetAssetStorePlugin",
+    "onCommand:unity.CreateDirectories"
   ],
   "main": "./out/src/extension",
   "contributes": {
     "commands": [
       {
-        "command": "extension.unityOpenDocs",
+        "command": "unity.OpenDocs",
         "title": "Unity: Open Documentation"
       },
       {
-        "command": "extension.unitySearchDocs",
+        "command": "unity.SearchDocs",
         "title": "Unity: Search Documentation"
       },
       {
-        "command": "extension.unityOpenVSCodeDocs",
+        "command": "unity.OpenVSCodeDocs",
         "title": "Unity: Open VSCode Documentation"
       },
       {
-        "command": "extension.unityGetAssetStorePlugin",
+        "command": "unity.GetAssetStorePlugin",
         "title": "Unity: Get VSCode plug-in from the Asset Store"
       },
       {
-        "command": "extension.unityCreateDirectories",
+        "command": "unity.CreateDirectories",
         "title": "Unity: Generate Organizational Folders"
       }
     ],
@@ -60,13 +60,13 @@
         "key": "ctrl+'",
         "mac": "cmd+'",
         "when": "editorTextFocus && editorLangId == 'csharp'",
-        "command": "extension.unityOpenDocs"
+        "command": "unity.OpenDocs"
       },
       {
         "key": "ctrl+shift+'",
         "mac": "cmd+shift+'",
         "when": "editorTextFocus && editorLangId == 'csharp'",
-        "command": "extension.unitySearchDocs"
+        "command": "unity.SearchDocs"
       }
     ]
   },
@@ -74,8 +74,11 @@
     "type": "object",
     "title": "Unity-Tools Settings",
     "properties": {
-      "unity.setDefaultOrganizationFolders": {
+      "unity.defaultOrganizationFolders": {
         "type": "array",
+        "items": {
+          "type": "string"
+        },
         "default": [
           "Materials",
           "Scenes",

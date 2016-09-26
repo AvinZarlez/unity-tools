@@ -18,7 +18,7 @@ export function activate(context: vscode.ExtensionContext) {
 	console.log('Unity Tools extension is now active!'); 
 
 	// Open Unity Documentation, when you already have something you want to search selected
-	var open_docs = vscode.commands.registerTextEditorCommand("extension.unityOpenDocs",
+	var open_docs = vscode.commands.registerTextEditorCommand("unity.OpenDocs",
 		(textEditor: vscode.TextEditor, edit: vscode.TextEditorEdit) => {
 				
 			// selection[0] is the start, and selection[1] is the end
@@ -46,7 +46,7 @@ export function activate(context: vscode.ExtensionContext) {
 	});
 	context.subscriptions.push(open_docs);
 	
-	var search_docs = vscode.commands.registerCommand("extension.unitySearchDocs",()=>{
+	var search_docs = vscode.commands.registerCommand("unity.SearchDocs",()=>{
 		vscode.window.showInputBox({
 			prompt: "Search the Unity Documentation:"
 		}).then((result) => {
@@ -58,7 +58,7 @@ export function activate(context: vscode.ExtensionContext) {
 	});
 	context.subscriptions.push(search_docs);
     
-	var open_vscode_docs = vscode.commands.registerCommand("extension.unityOpenVSCodeDocs",()=>{
+	var open_vscode_docs = vscode.commands.registerCommand("unity.OpenVSCodeDocs",()=>{
 		// Using OpenURL from search to open VS Documentation.
         // Passing "true" to open the URL directly (instead of searching Unity docs)
         search.openURL("https://code.visualstudio.com/Docs/runtimes/unity", true);
@@ -66,7 +66,7 @@ export function activate(context: vscode.ExtensionContext) {
 	});
 	context.subscriptions.push(open_vscode_docs);
 
-	var get_assetstore_plugin = vscode.commands.registerCommand("extension.unityGetAssetStorePlugin",()=>{
+	var get_assetstore_plugin = vscode.commands.registerCommand("unity.GetAssetStorePlugin",()=>{
 		search.openURL("http://u3d.as/jmM", true);
         return vscode.window.showErrorMessage("Add to your Unity project, and remember check \"Enable Integration\"","How To","Git").then((item) => {
 		  if (item === "How To") {
@@ -83,7 +83,17 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(get_assetstore_plugin);
 	
     
-    var create_Directories = vscode.commands.registerCommand("extension.unityCreateDirectories", () => {
+    var create_Directories = vscode.commands.registerCommand("unity.CreateDirectories", () => {
+		let settings : vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration('unity');
+
+		var folderList = settings.get('defaultOrganizationFolders') || [
+			"Materials",
+			"Scenes",
+			"Scripts",
+			"Prefabs",
+			"Audio"
+        ];
+		vscode.window.showErrorMessage("R: "+folderList);
 		var rootPath = vscode.workspace.rootPath;
 		if(rootPath != undefined){
 			fs.stat(rootPath, (err, stats) => {
