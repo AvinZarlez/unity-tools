@@ -80,7 +80,8 @@
           "Materials",
           "Scenes",
           "Scripts",
-          "Prefabs"
+          "Prefabs",
+          "Audio"
         ], 
         "description": "Sets which folders will be generated from the unity.GenerateOrganizationFolders command"
       }
