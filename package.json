@@ -28,7 +28,8 @@
     "onCommand:extension.unityOpenDocs",
     "onCommand:extension.unitySearchDocs",
     "onCommand:extension.unityOpenVSCodeDocs",
-    "onCommand:extension.unityGetAssetStorePlugin"
+    "onCommand:extension.unityGetAssetStorePlugin",
+    "onCommand:extension.unityCreateDirectories"
   ],
   "main": "./out/src/extension",
   "contributes": {
@@ -48,6 +49,10 @@
       {
         "command": "extension.unityGetAssetStorePlugin",
         "title": "Unity: Get VSCode plug-in from the Asset Store"
+      },
+      {
+        "command": "extension.unityCreateDirectories",
+        "title": "Unity: Generate Organizational Folders"
       }
     ],
     "keybindings": [
@@ -64,6 +69,22 @@
         "command": "extension.unitySearchDocs"
       }
     ]
+  },
+  "configuration": {
+    "type": "object",
+    "title": "Unity-Tools Settings",
+    "properties": {
+      "unity.setDefaultOrganizationFolders": {
+        "type": "array",
+        "default": [
+          "Materials",
+          "Scenes",
+          "Scripts",
+          "Prefabs"
+        ], 
+        "description": "Sets which folders will be generated from the unity.GenerateOrganizationFolders command"
+      }
+    }
   },
   "scripts": {
     "postinstall": "node ./node_modules/vscode/bin/install",
