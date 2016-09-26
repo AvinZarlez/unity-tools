@@ -2,7 +2,7 @@
   "name": "unity-tools",
   "displayName": "Unity Tools",
   "description": "Various tools to help with Unity development",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "publisher": "Tobiah",
   "engines": {
     "vscode": "^0.10.7"
@@ -85,7 +85,7 @@
           "Scripts",
           "Prefabs",
           "Audio"
-        ], 
+        ],
         "description": "Sets which folders will be generated from the unity.GenerateOrganizationFolders command"
       }
     }
