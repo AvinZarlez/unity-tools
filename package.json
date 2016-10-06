@@ -2,7 +2,7 @@
   "name": "unity-tools",
   "displayName": "Unity Tools",
   "description": "Various tools to help with Unity development",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "publisher": "Tobiah",
   "engines": {
     "vscode": "^0.10.7"
@@ -105,8 +105,8 @@
     "open": "^0.0.5"
   },
   "extensionDependencies": [
-      "YclepticStudios.unity-snippets",
-      "Unity.unity-debug"
+    "YclepticStudios.unity-snippets",
+    "Unity.unity-debug"
   ],
   "icon": "unity-logo.png"
 }
