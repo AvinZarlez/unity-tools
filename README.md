@@ -4,7 +4,9 @@
 
 This is an **unofficial** extention created by Tobiah Zarlez, and is not affiliated in any way with Unity Technologies. 
 
-The goal of this extention is to add miscellaneous functionality to Visual Studio Code for Unity developers
+The goal of this extention is to add miscellaneous functionality to Visual Studio Code for Unity developers.
+
+This extension also acts as an extension package for other Unity related VSCode extensions. Specfically, "YclepticStudios.unity-snippets" and "Unity.unity-debug"
 
 ## What this extension isn't
 
