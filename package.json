@@ -104,5 +104,9 @@
   "dependencies": {
     "open": "^0.0.5"
   },
+  "extensionDependencies": [
+      "YclepticStudios.unity-snippets",
+      "Unity.unity-debug"
+  ],
   "icon": "unity-logo.png"
 }
