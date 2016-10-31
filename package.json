@@ -25,33 +25,33 @@
     "asset store"
   ],
   "activationEvents": [
-    "onCommand:unity.OpenDocs",
-    "onCommand:unity.SearchDocs",
-    "onCommand:unity.OpenVSCodeDocs",
-    "onCommand:unity.GetAssetStorePlugin",
-    "onCommand:unity.CreateDirectories"
+    "onCommand:unity-tools.OpenDocs",
+    "onCommand:unity-tools.SearchDocs",
+    "onCommand:unity-tools.OpenVSCodeDocs",
+    "onCommand:unity-tools.GetAssetStorePlugin",
+    "onCommand:unity-tools.CreateDirectories"
   ],
   "main": "./out/src/extension",
   "contributes": {
     "commands": [
       {
-        "command": "unity.OpenDocs",
+        "command": "unity-tools.OpenDocs",
         "title": "Unity: Open Documentation"
       },
       {
-        "command": "unity.SearchDocs",
+        "command": "unity-tools.SearchDocs",
         "title": "Unity: Search Documentation"
       },
       {
-        "command": "unity.OpenVSCodeDocs",
+        "command": "unity-tools.OpenVSCodeDocs",
         "title": "Unity: Open VSCode Documentation"
       },
       {
-        "command": "unity.GetAssetStorePlugin",
+        "command": "unity-tools.GetAssetStorePlugin",
         "title": "Unity: Get VSCode plug-in from the Asset Store"
       },
       {
-        "command": "unity.CreateDirectories",
+        "command": "unity-tools.CreateDirectories",
         "title": "Unity: Generate Organizational Folders"
       }
     ],
@@ -60,13 +60,13 @@
         "key": "ctrl+'",
         "mac": "cmd+'",
         "when": "editorTextFocus && editorLangId == 'csharp'",
-        "command": "unity.OpenDocs"
+        "command": "unity-tools.OpenDocs"
       },
       {
         "key": "ctrl+shift+'",
         "mac": "cmd+shift+'",
         "when": "editorTextFocus && editorLangId == 'csharp'",
-        "command": "unity.SearchDocs"
+        "command": "unity-tools.SearchDocs"
       }
     ]
   },
@@ -74,7 +74,7 @@
     "type": "object",
     "title": "Unity-Tools Settings",
     "properties": {
-      "unity.defaultOrganizationFolders": {
+      "unity-tools.defaultOrganizationFolders": {
         "type": "array",
         "items": {
           "type": "string"
@@ -86,7 +86,7 @@
           "Prefabs",
           "Audio"
         ],
-        "description": "Sets which folders will be generated from the unity.GenerateOrganizationFolders command"
+        "description": "Sets which folders will be generated from the unity-tools.GenerateOrganizationFolders command"
       }
     }
   },
@@ -104,9 +104,5 @@
   "dependencies": {
     "open": "^0.0.5"
   },
-  "extensionDependencies": [
-    "YclepticStudios.unity-snippets",
-    "Unity.unity-debug"
-  ],
   "icon": "unity-logo.png"
 }

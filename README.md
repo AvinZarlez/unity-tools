@@ -54,7 +54,7 @@ To do this simply open or create `./.vscode/settings.json` and fill in the follo
 
 ```json
 {
-    "unity.defaultOrganizationFolders" : ["Your","New", "Folder","Names"]
+    "unity-tools.defaultOrganizationFolders" : ["Your","New", "Folder","Names"]
 }
 ```
 
