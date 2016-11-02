@@ -27,6 +27,7 @@
   "activationEvents": [
     "onCommand:unity-tools.OpenDocs",
     "onCommand:unity-tools.SearchDocs",
+    "onCommand:unity-tools.SearchMSDNDocs",
     "onCommand:unity-tools.OpenVSCodeDocs",
     "onCommand:unity-tools.GetAssetStorePlugin",
     "onCommand:unity-tools.CreateDirectories"
@@ -36,23 +37,27 @@
     "commands": [
       {
         "command": "unity-tools.OpenDocs",
-        "title": "Unity: Open Documentation"
+        "title": "Unity Tools: Open Documentation for Selection"
       },
       {
         "command": "unity-tools.SearchDocs",
-        "title": "Unity: Search Documentation"
+        "title": "Unity Tools: Search Documentation"
+      },
+      {
+        "command": "unity-tools.SearchMSDNDocs",
+        "title": "Unity Tools: Search MSDN Documentation"
       },
       {
         "command": "unity-tools.OpenVSCodeDocs",
-        "title": "Unity: Open VSCode Documentation"
+        "title": "Unity Tools: Open VSCode Documentation"
       },
       {
         "command": "unity-tools.GetAssetStorePlugin",
-        "title": "Unity: Get VSCode plug-in from the Asset Store"
+        "title": "Unity Tools: Get VSCode plug-in from the Asset Store"
       },
       {
         "command": "unity-tools.CreateDirectories",
-        "title": "Unity: Generate Organizational Folders"
+        "title": "Unity Tools: Generate Organizational Folders"
       }
     ],
     "keybindings": [

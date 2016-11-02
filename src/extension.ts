@@ -38,7 +38,7 @@ export function activate(context: vscode.ExtensionContext) {
 			}
 
 			if (range == undefined) {
-				openDocErrorMessage("Nothing is selected. Please select a class!");
+				openDocErrorMessage("Nothing is selected. Please select a class, or use \"Search Documentation\" instead!");
 				return;
 			}
 
@@ -48,11 +48,23 @@ export function activate(context: vscode.ExtensionContext) {
 
 	var search_docs = vscode.commands.registerCommand("unity-tools.SearchDocs", () => {
 		vscode.window.showInputBox({
-			prompt: "Search the Unity Documentation:"
+			prompt: "Search Unity Documentation:"
 		}).then((result) => {
 			if (result != undefined) {
 				//Use the node module "open" to open a web browser
 				search.openURL("unity",result);
+			}
+		});
+	});
+	context.subscriptions.push(search_docs);
+
+	var search_docs = vscode.commands.registerCommand("unity-tools.SearchMSDNDocs", () => {
+		vscode.window.showInputBox({
+			prompt: "Search MSDN Documentation:"
+		}).then((result) => {
+			if (result != undefined) {
+				//Use the node module "open" to open a web browser
+				search.openURL("msdn",result);
 			}
 		});
 	});

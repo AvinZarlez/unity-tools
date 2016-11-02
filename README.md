@@ -29,20 +29,20 @@ Launch VS Code Quick Open (Ctrl+P) and copy/paste the following command:
 
 ## Feature list:
 
-### Command: Open Documentation
-Use the pallet command "Unity: Open Documentation" (`Cmd+'` on OSX or `Ctrl+'` on Windows and Linux) to open the Unity Documentation for the currently selected class.
+### Command: Open Documentation for Selection
+Use the pallet command "Unity Tools: Open Documentation for Selection" (`Cmd+'` on OSX or `Ctrl+'` on Windows and Linux) to open the Unity Documentation for the currently selected class.
 
 ### Command: Search Documentation
-Use the pallet command "Unity: Search Documentation" (Shortcut: `Cmd+Shift+'` on OSX or `Ctrl+Shift+'` on Windows and Linux) where you can quickly enter whatever you want to search for.
+Use the pallet command "Unity Tools: Search Documentation" (Shortcut: `Cmd+Shift+'` on OSX or `Ctrl+Shift+'` on Windows and Linux) where you can quickly enter whatever you want to search for.
 
 ### Command: Open VSCode Documentation
-Added the pallet command "Unity: Open VSCode Documentation" to open the [Unity Development with VS Code](https://code.visualstudio.com/docs/runtimes/unity) page on the Visual Studio Code Documentation.
+Added the pallet command "Unity Tools: Open VSCode Documentation" to open the [Unity Development with VS Code](https://code.visualstudio.com/docs/runtimes/unity) page on the Visual Studio Code Documentation.
 
 ### Command: Get VSCode plug-in from the Asset Store
-Added the pallet command "Unity: Get VSCode plug-in from the Asset Store" to open [dotBunny's Unity plug-in](https://github.com/dotBunny/VSCode/) on the [Unity Asset Store](http://u3d.as/jmM). Afterwards, will display a message with a link to the [How-To](https://github.com/dotBunny/VSCode/blob/master/HOWTO.pdf) and the Git repo for the project.
+Added the pallet command "Unity Tools: Get VSCode plug-in from the Asset Store" to open [dotBunny's Unity plug-in](https://github.com/dotBunny/VSCode/) on the [Unity Asset Store](http://u3d.as/jmM). Afterwards, will display a message with a link to the [How-To](https://github.com/dotBunny/VSCode/blob/master/HOWTO.pdf) and the Git repo for the project.
 
 ### Command: Generate Organizational Folders
-Added the pallet command "Unity: Generate Organizational Folders" to create some default organizational folders to your project's Assets Folder. The list of default folders are below: 
+Added the pallet command "Unity Tools: Generate Organizational Folders" to create some default organizational folders to your project's Assets Folder. The list of default folders are below: 
 * Scenes 
 * Scripts 
 * Prefabs 
