@@ -35,6 +35,9 @@ Use the pallet command "Unity Tools: Open Documentation for Selection" (`Cmd+'` 
 ### Command: Search Documentation
 Use the pallet command "Unity Tools: Search Documentation" (Shortcut: `Cmd+Shift+'` on OSX or `Ctrl+Shift+'` on Windows and Linux) where you can quickly enter whatever you want to search for.
 
+### Command: Search MSDN Documentation
+Use the pallet command "Unity Tools: Search MSDN Documentation" where you can enter whatever you want to search the MSDN documentation for.
+
 ### Command: Open VSCode Documentation
 Added the pallet command "Unity Tools: Open VSCode Documentation" to open the [Unity Development with VS Code](https://code.visualstudio.com/docs/runtimes/unity) page on the Visual Studio Code Documentation.
 
