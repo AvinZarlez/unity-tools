@@ -7,7 +7,7 @@ let fs = require('fs');
 function openDocErrorMessage(str) {
 	return vscode.window.showErrorMessage("Error: " + str, "Open Docs").then((item) => {
 		if (item === "Open Docs") {
-			search.openURL();
+			search.openURL("unity");
 		}
 	});
 }
@@ -52,7 +52,7 @@ export function activate(context: vscode.ExtensionContext) {
 		}).then((result) => {
 			if (result != undefined) {
 				//Use the node module "open" to open a web browser
-				search.openURL(result);
+				search.openURL("unity",result);
 			}
 		});
 	});
@@ -61,22 +61,20 @@ export function activate(context: vscode.ExtensionContext) {
 	var open_vscode_docs = vscode.commands.registerCommand("unity-tools.OpenVSCodeDocs", () => {
 		// Using OpenURL from search to open VS Documentation.
         // Passing "true" to open the URL directly (instead of searching Unity docs)
-        search.openURL("https://code.visualstudio.com/Docs/runtimes/unity", true);
+        search.openURL("open","https://code.visualstudio.com/Docs/runtimes/unity");
 
 	});
 	context.subscriptions.push(open_vscode_docs);
 
 	var get_assetstore_plugin = vscode.commands.registerCommand("unity-tools.GetAssetStorePlugin", () => {
-		search.openURL("http://u3d.as/jmM", true);
+		search.openURL("open","http://u3d.as/jmM");
         return vscode.window.showErrorMessage("Add to your Unity project, and remember check \"Enable Integration\"", "How To", "Git").then((item) => {
 			if (item === "How To") {
 				// Using OpenURL from search to open Unity plug-in Documentation in git repo.
-				// Passing "true" to open the URL directly (instead of searching Unity docs)
-				search.openURL("https://github.com/dotBunny/VSCode/blob/master/HOWTO.pdf", true);
+				search.openURL("open","https://github.com/dotBunny/VSCode/blob/master/HOWTO.pdf");
 			} else if (item === "Git") {
 				// Using OpenURL from search to open Unity plug-in git repo.
-				// Passing "true" to open the URL directly (instead of searching Unity docs)
-				search.openURL("https://github.com/dotBunny/VSCode/", true);
+				search.openURL("open","https://github.com/dotBunny/VSCode/");
 			}
 		});
 	});
