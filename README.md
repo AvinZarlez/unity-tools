@@ -1,5 +1,10 @@
 # Unity Tools for Visual Studio Code
 [![Build Status](https://travis-ci.org/TobiahZ/unity-tools.svg?branch=master)](https://travis-ci.org/TobiahZ/unity-tools) [![Dependency Status](https://dependencyci.com/github/TobiahZ/unity-tools/badge)](https://dependencyci.com/github/TobiahZ/unity-tools)
+
+[![Marketplace Version](http://vsmarketplacebadge.apphb.com/version/Tobiah.unity-tools.svg)](https://marketplace.visualstudio.com/items?itemName=Tobiah.unity-tools)
+[![Installs](http://vsmarketplacebadge.apphb.com/installs/Tobiah.unity-tools.svg)](https://marketplace.visualstudio.com/items?itemName=Tobiah.unity-tools)
+[![Rating](http://vsmarketplacebadge.apphb.com/rating/Tobiah.unity-tools.svg)](https://marketplace.visualstudio.com/items?itemName=Tobiah.unity-tools)
+
 ## What this extension is
 
 This is an **unofficial** extention created by Tobiah Zarlez, and is not affiliated in any way with Unity Technologies. 
