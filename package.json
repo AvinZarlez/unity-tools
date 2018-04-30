@@ -2,7 +2,7 @@
   "name": "unity-tools",
   "displayName": "Unity Tools",
   "description": "Various tools to help with Unity development",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "publisher": "Tobiah",
   "engines": {
     "vscode": "^0.10.7"
@@ -61,11 +61,13 @@
       }
     ],
     "menus": {
-      "editor/context": [{
-        "when": "editorHasSelection",
-        "command": "unity-tools.OpenDocs",
-        "group": "navigation@1"
-      }]
+      "editor/context": [
+        {
+          "when": "editorHasSelection",
+          "command": "unity-tools.OpenDocs",
+          "group": "navigation@1"
+        }
+      ]
     },
     "keybindings": [
       {
