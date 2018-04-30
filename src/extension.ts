@@ -111,7 +111,7 @@ export function activate(context: vscode.ExtensionContext) {
 						} else if (stats.isDirectory()) {
 							// Folder exists! Generate default folders. 
 
-							var settings: vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration('unity');
+							var settings: vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration('unity-tools');
 
 							var folderList = settings.get('defaultOrganizationFolders', [
 								"Materials",
