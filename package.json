@@ -2,7 +2,7 @@
   "name": "unity-tools",
   "displayName": "Unity Tools",
   "description": "Various tools to help with Unity development",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "publisher": "Tobiah",
   "engines": {
     "vscode": "^0.10.8"
