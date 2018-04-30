@@ -1,3 +1,7 @@
+0.1.11 / 2018-04-30
+
+Updated dependencies
+
 0.1.10 / 2018-04-30
 
 Merged in PR from @ilgarmehmetali adding Open Docs feature to right-click menu
