@@ -8,5 +8,8 @@
 	},
 	"exclude": [
 		"node_modules"
-	]
+	],
+	"files": [
+		"node_modules/typescript/lib/lib.es6.d.ts"
+]
 }
