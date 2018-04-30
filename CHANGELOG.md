@@ -1,3 +1,7 @@
+0.1.13 / 2018-04-30
+-------------------
+Updated Node version for Travis.
+
 0.1.12 / 2018-04-30
 -------------------
 Bug fix: Organization folder settings should now load correctly from "unity-tools.defaultOrganizationFolders"
