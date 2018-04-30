@@ -82,25 +82,25 @@
         "when": "editorTextFocus && editorLangId == 'csharp'",
         "command": "unity-tools.SearchDocs"
       }
-    ]
-  },
-  "configuration": {
-    "type": "object",
-    "title": "Unity-Tools Settings",
-    "properties": {
-      "unity-tools.defaultOrganizationFolders": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        },
-        "default": [
-          "Materials",
-          "Scenes",
-          "Scripts",
-          "Prefabs",
-          "Audio"
-        ],
-        "description": "Sets which folders will be generated from the unity-tools.GenerateOrganizationFolders command"
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Unity-Tools Settings",
+      "properties": {
+        "unity-tools.defaultOrganizationFolders": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "Materials",
+            "Scenes",
+            "Scripts",
+            "Prefabs",
+            "Audio"
+          ],
+          "description": "Sets which folders will be generated from the unity-tools.GenerateOrganizationFolders command"
+        }
       }
     }
   },
