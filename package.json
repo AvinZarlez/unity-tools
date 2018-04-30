@@ -60,6 +60,13 @@
         "title": "Unity Tools: Generate Organizational Folders"
       }
     ],
+    "menus": {
+      "editor/context": [{
+        "when": "editorHasSelection",
+        "command": "unity-tools.OpenDocs",
+        "group": "navigation@1"
+      }]
+    },
     "keybindings": [
       {
         "key": "ctrl+'",
