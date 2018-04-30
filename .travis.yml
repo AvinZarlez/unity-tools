@@ -4,7 +4,7 @@ notifications:
 language: node_js
 
 node_js:
- - 4.0
+ - 8.11.1
 
 cache:
   directories:
