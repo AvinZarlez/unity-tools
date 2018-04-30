@@ -1,3 +1,7 @@
+0.1.14 / 2018-04-30
+-------------------
+Bug fix: Travis publishing was not working.
+
 0.1.13 / 2018-04-30
 -------------------
 Updated Node version for Travis.
