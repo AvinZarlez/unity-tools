@@ -3,10 +3,11 @@ let unity_search_url 	= unity_search + "?q=";
 let msdn_search 		= "https://social.msdn.microsoft.com/search/";
 let msdn_search_url 	= msdn_search + "?query=";
 
-//Open a URL using the npm module "open"
-let open = require("open");
+//Open a URL using the npm module "opn"
+import opn = require("opn");
+
 export function openURL(search_base?: string, s?: string) {
-    if (search_base == "open") { open(s); } else {
+    if (search_base == "open") { opn(s); } else {
 		var search_blank_url, search_url;
 
 		if (search_base == "unity") {
@@ -21,7 +22,7 @@ export function openURL(search_base?: string, s?: string) {
 		if (!s) { s = search_blank_url; }
 		else { s = search_url + s; }
 		
-		open(s);
+		opn(s);
     }
 	return true;
 }
@@ -46,6 +47,6 @@ export function prepareInput(input: string, start: number, end: number) {
 }
 
 export function openUnityDocs(input: string, start: number, end: number) {
-	//Use the node module "open" to open a web browser
+	//Use the node module "opn" to open a web browser
 	openURL("unity",prepareInput(input, start, end));
 }

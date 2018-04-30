@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 import * as search from './search';
 import * as directories from './directories';
 
-let fs = require('fs');
+import fs = require('fs');
 
 function openDocErrorMessage(str) {
 	return vscode.window.showErrorMessage("Error: " + str, "Open Docs").then((item) => {

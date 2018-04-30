@@ -5,7 +5,7 @@
   "version": "0.1.10",
   "publisher": "Tobiah",
   "engines": {
-    "vscode": "^0.10.7"
+    "vscode": "^0.10.8"
   },
   "license": "SEE LICENSE IN LICENSE.txt",
   "homepage": "https://github.com/TobiahZ/unity-tools",
@@ -116,7 +116,7 @@
     "vscode": "^1.1.x"
   },
   "dependencies": {
-    "open": "^0.0.5"
+    "opn": "^5.3.0"
   },
   "icon": "unity-logo.png"
 }
