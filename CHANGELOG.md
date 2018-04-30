@@ -1,3 +1,7 @@
+0.1.15 / 2018-04-30
+-------------------
+Bug fix: Organization folder setting should no longer give "Unknown configuration setting" error 
+
 0.1.14 / 2018-04-30
 -------------------
 Bug fix: Travis publishing was not working.
