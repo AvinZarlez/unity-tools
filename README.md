@@ -67,6 +67,13 @@ To do this simply open or create `./.vscode/settings.json` and fill in the follo
 }
 ```
 
+You can also enable/disable the "Open Documentation" option in right-click menu by the following setting (default true):
+
+```json
+{
+    "unity-tools.enableRightClickSearch" : true
+}
+
 
 ## Other resources
 

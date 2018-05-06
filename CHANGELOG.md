@@ -1,3 +1,7 @@
+0.1.16 / 2018-05-06
+-------------------
+Added setting to disable right click menu. Made right click menu only appear in c# files.
+
 0.1.15 / 2018-04-30
 -------------------
 Bug fix: Organization folder setting should no longer give "Unknown configuration setting" error 

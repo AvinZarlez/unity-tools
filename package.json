@@ -63,7 +63,7 @@
     "menus": {
       "editor/context": [
         {
-          "when": "editorHasSelection",
+          "when": "editorHasSelection && editorLangId == 'csharp' && config.unity-tools.enableRightClickSearch",
           "command": "unity-tools.OpenDocs",
           "group": "navigation@1"
         }
@@ -100,6 +100,11 @@
             "Audio"
           ],
           "description": "Sets which folders will be generated from the unity-tools.GenerateOrganizationFolders command"
+        },
+        "unity-tools.enableRightClickSearch": {
+            "type": "boolean",
+            "default": true,
+            "description": "Enables the \"Open Documentation\" option on right-click menu."
         }
       }
     }
