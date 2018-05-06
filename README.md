@@ -73,6 +73,7 @@ You can also enable/disable the "Open Documentation" option in right-click menu 
 {
     "unity-tools.enableRightClickSearch" : true
 }
+```
 
 
 ## Other resources
