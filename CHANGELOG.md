@@ -1,3 +1,7 @@
+0.1.17 / 2018-05-06
+-------------------
+Updated dependencies
+
 0.1.16 / 2018-05-06
 -------------------
 Added setting to disable right click menu. Made right click menu only appear in c# files.
