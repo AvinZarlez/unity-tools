@@ -14,7 +14,12 @@
     "url": "https://github.com/TobiahZ/unity-tools.git"
   },
   "categories": [
-    "Other"
+    "Other",
+    "Extension Packs"
+  ],
+  "extensionDependencies": [
+    "Unity.unity-debug",
+    "YclepticStudios.unity-snippets"
   ],
   "bugs": "https://github.com/TobiahZ/unity-tools/issues",
   "keywords": [

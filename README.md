@@ -1,4 +1,5 @@
 # Unity Tools for Visual Studio Code
+
 [![Build Status](https://travis-ci.org/TobiahZ/unity-tools.svg?branch=master)](https://travis-ci.org/TobiahZ/unity-tools) [![Dependency Status](https://dependencyci.com/github/TobiahZ/unity-tools/badge)](https://dependencyci.com/github/TobiahZ/unity-tools)
 
 [![Marketplace Version](https://vsmarketplacebadge.apphb.com/version/Tobiah.unity-tools.svg)](https://marketplace.visualstudio.com/items?itemName=Tobiah.unity-tools)
@@ -7,12 +8,11 @@
 
 ## What this extension is
 
-This is an **unofficial** extention created by Tobiah Zarlez, and is not affiliated in any way with Unity Technologies. 
+This is an **unofficial** extension created by Tobiah Zarlez, and is not affiliated in any way with Unity Technologies.
 
-The goal of this extention is to add miscellaneous functionality to Visual Studio Code for Unity developers.
+The goal of this extension is to add miscellaneous functionality to Visual Studio Code for Unity developers.
 
-In this future, this extension will also act as an extension package for other Unity related VSCode extensions. Specfically, "YclepticStudios.unity-snippets" and "Unity.unity-debug"
-However, that feature is in preview right now, so for now you'll have to manually install the related extensions.
+This extension also acts as an extension package for two other Unity related VSCode extensions. Specifically, "YclepticStudios.unity-snippets" and "Unity.unity-debug"
 
 ## What this extension isn't
 
@@ -35,30 +35,38 @@ Launch VS Code Quick Open (Ctrl+P) and copy/paste the following command:
 ## Feature list:
 
 ### Command: Open Documentation for Selection
+
 Use the pallet command "Unity Tools: Open Documentation for Selection" (`Cmd+'` on OSX or `Ctrl+'` on Windows and Linux) to open the Unity Documentation for the currently selected class.
 
 ### Command: Search Documentation
+
 Use the pallet command "Unity Tools: Search Documentation" (Shortcut: `Cmd+Shift+'` on OSX or `Ctrl+Shift+'` on Windows and Linux) where you can quickly enter whatever you want to search for.
 
 ### Command: Search MSDN Documentation
+
 Use the pallet command "Unity Tools: Search MSDN Documentation" where you can enter whatever you want to search the MSDN documentation for.
 
 ### Command: Open VSCode Documentation
+
 Added the pallet command "Unity Tools: Open VSCode Documentation" to open the [Unity Development with VS Code](https://code.visualstudio.com/docs/runtimes/unity) page on the Visual Studio Code Documentation.
 
 ### Command: Get VSCode plug-in from the Asset Store
-Added the pallet command "Unity Tools: Get VSCode plug-in from the Asset Store" to open [dotBunny's Unity plug-in](https://github.com/dotBunny/VSCode/) on the [Unity Asset Store](http://u3d.as/jmM). Afterwards, will display a message with a link to the [How-To](https://github.com/dotBunny/VSCode/blob/master/HOWTO.pdf) and the Git repo for the project.
+
+Added the pallet command "Unity Tools: Get VSCode plug-in from the Asset Store" to open [dotBunny's Unity plug-in](https://github.com/dotBunny/VSCode/) on the [Unity Asset Store](http://u3d.as/jmM). Afterwards, will display a message with a link to the [How-To](https://github.com/dotBunny/VSCode/blob/master/HOWTO.pdf) and the git repository for the project.
 
 ### Command: Generate Organizational Folders
-Added the pallet command "Unity Tools: Generate Organizational Folders" to create some default organizational folders to your project's Assets Folder. The list of default folders are below: 
-* Scenes 
-* Scripts 
-* Prefabs 
-* Materials  
-* Audio 
+
+Added the pallet command "Unity Tools: Generate Organizational Folders" to create some default organizational folders to your project's Assets Folder. The list of default folders are below:
+
+* Scenes
+* Scripts
+* Prefabs
+* Materials
+* Audio
 
 ### Configuration
-The Unity-Tools command Generate Organizational Folders can be configured to create a set of folders of your choosing, instead of the 5 default ones: Scenes, Scripts, Prefabs, Materials, and Audio. 
+
+The Unity-Tools command Generate Organizational Folders can be configured to create a set of folders of your choosing, instead of the 5 default ones: Scenes, Scripts, Prefabs, Materials, and Audio.
 To do this simply open or create `./.vscode/settings.json` and fill in the following fields:
 
 ```json
@@ -75,12 +83,10 @@ You can also enable/disable the "Open Documentation" option in right-click menu 
 }
 ```
 
-
 ## Other resources
 
 Here are some other resources I recommend:
 
 * [Unity Development with VS Code](https://code.visualstudio.com/docs/runtimes/unity)
-* [dotBunny's Unity plug-in for Visual Studio Code support](https://github.com/dotBunny/VSCode/) - [Asset Store Link](http://u3d.as/jmM)
-* [Unity's official debugger for Visual Studio Code](https://github.com/Unity-Technologies/vscode-unity-debug)
+* [GitHub Repository for Unity's official Visual Studio Code debugger](https://github.com/Unity-Technologies/vscode-unity-debug)
 * [Tobiah Zarlez Blog](http://www.TobiahZ.com)
