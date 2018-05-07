@@ -32,7 +32,7 @@ Launch VS Code Quick Open (Ctrl+P) and copy/paste the following command:
 
 > ext install unity-tools
 
-## Feature list:
+## Feature list
 
 ### Command: Open Documentation for Selection
 

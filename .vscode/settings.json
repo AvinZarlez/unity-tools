@@ -1,3 +1,10 @@
 {
-    "typescript.tsdk": "./node_modules/typescript/lib"
+    "typescript.tsdk": "./node_modules/typescript/lib",
+    "cSpell.words": [
+        "ilgarmehmetali",
+        "ycleptic"
+    ],
+    "markdownlint.config": {
+        "MD026": { "punctuation": ".,;:!" }
+    }
 }
