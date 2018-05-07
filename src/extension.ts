@@ -107,7 +107,7 @@ export function activate(context: vscode.ExtensionContext) {
 							]);
 
 							directories.GenerateOrganizationFolders(rootPath, folderList);
-							vscode.window.showInformationMessage("Folders generated sucessfully");
+							vscode.window.showInformationMessage("Folders generated successfully");
 						}
 					});
 				}

@@ -4,6 +4,12 @@ Version Number / Publish Date
 
 -------------------
 
+## 0.2.1 / 2018-05-07
+
+Removed dotBunny's VSCode extension feature as it is no longer needed to use VSCode with Unity
+
+-------------------
+
 ## 0.2.0 / 2018-05-07
 
 Turned extension into extension pack for "Unity.unity-debug" and "YclepticStudios.unity-snippets"
