@@ -50,10 +50,6 @@ Use the pallet command "Unity Tools: Search MSDN Documentation" where you can en
 
 Added the pallet command "Unity Tools: Open VSCode Documentation" to open the [Unity Development with VS Code](https://code.visualstudio.com/docs/runtimes/unity) page on the Visual Studio Code Documentation.
 
-### Command: Get VSCode plug-in from the Asset Store
-
-Added the pallet command "Unity Tools: Get VSCode plug-in from the Asset Store" to open [dotBunny's Unity plug-in](https://github.com/dotBunny/VSCode/) on the [Unity Asset Store](http://u3d.as/jmM). Afterwards, will display a message with a link to the [How-To](https://github.com/dotBunny/VSCode/blob/master/HOWTO.pdf) and the git repository for the project.
-
 ### Command: Generate Organizational Folders
 
 Added the pallet command "Unity Tools: Generate Organizational Folders" to create some default organizational folders to your project's Assets Folder. The list of default folders are below:

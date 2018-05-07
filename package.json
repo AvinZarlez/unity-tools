@@ -34,7 +34,6 @@
     "onCommand:unity-tools.SearchDocs",
     "onCommand:unity-tools.SearchMSDNDocs",
     "onCommand:unity-tools.OpenVSCodeDocs",
-    "onCommand:unity-tools.GetAssetStorePlugin",
     "onCommand:unity-tools.CreateDirectories"
   ],
   "main": "./out/src/extension",
@@ -55,10 +54,6 @@
       {
         "command": "unity-tools.OpenVSCodeDocs",
         "title": "Unity Tools: Open VSCode Documentation"
-      },
-      {
-        "command": "unity-tools.GetAssetStorePlugin",
-        "title": "Unity Tools: Get VSCode plug-in from the Asset Store"
       },
       {
         "command": "unity-tools.CreateDirectories",
