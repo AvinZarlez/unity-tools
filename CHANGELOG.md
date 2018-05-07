@@ -1,3 +1,7 @@
+0.2.0 / 2018-05-07
+-------------------
+Turned extension into extension pack for "Unity.unity-debug" and "YclepticStudios.unity-snippets"
+
 0.1.17 / 2018-05-06
 -------------------
 Updated dependencies
