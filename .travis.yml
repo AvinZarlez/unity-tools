@@ -17,3 +17,10 @@ install:
 
 script:
   - npm test --silent
+
+-deploy:
+  provider: script
+  skip_cleanup: true
+  script: scripts/deploy.sh
+  on:
+    tags: true 
