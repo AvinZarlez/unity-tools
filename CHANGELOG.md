@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.2] - 2018-05-08
+
+### Fixed
+
+- Fixed typo in deploy script
+
 ## [1.0.1] - 2018-05-08
 
 ### Fixed
