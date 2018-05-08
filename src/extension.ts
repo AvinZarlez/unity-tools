@@ -39,7 +39,7 @@ export function activate(context: vscode.ExtensionContext) {
 				range = textEditor.document.getWordRangeAtPosition(selection.active);
 			}
 
-			if (range == undefined) {
+			if (range === undefined) {
 				openDocErrorMessage("Nothing is selected. Please select a class, or use \"Search Documentation\" instead!");
 				return;
 			}
@@ -48,29 +48,29 @@ export function activate(context: vscode.ExtensionContext) {
 		});
 	context.subscriptions.push(open_docs);
 
-	var search_docs = vscode.commands.registerCommand("unity-tools.SearchDocs", () => {
+	var searchUnityDocs = vscode.commands.registerCommand("unity-tools.SearchDocs", () => {
 		vscode.window.showInputBox({
 			prompt: "Search Unity Documentation:"
 		}).then((result: string | undefined) => {
-			if (result != undefined) {
+			if (result !== undefined) {
 				//Use the node module "open" to open a web browser
 				search.openURL("unity",result);
 			}
 		});
 	});
-	context.subscriptions.push(search_docs);
+	context.subscriptions.push(searchUnityDocs);
 
-	var search_docs = vscode.commands.registerCommand("unity-tools.SearchMSDNDocs", () => {
+	var searchMSDocs = vscode.commands.registerCommand("unity-tools.SearchMSDNDocs", () => {
 		vscode.window.showInputBox({
 			prompt: "Search MSDN Documentation:"
 		}).then((result: string | undefined) => {
-			if (result != undefined) {
+			if (result !== undefined) {
 				//Use the node module "open" to open a web browser
 				search.openURL("msdn",result);
 			}
 		});
 	});
-	context.subscriptions.push(search_docs);
+	context.subscriptions.push(searchMSDocs);
 
 	var open_vscode_docs = vscode.commands.registerCommand("unity-tools.OpenVSCodeDocs", () => {
 		// Using OpenURL from search to open VS Documentation.
@@ -82,7 +82,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     var create_Directories = vscode.commands.registerCommand("unity-tools.CreateDirectories", () => {
 		var rootPath = vscode.workspace.rootPath;
-		if (rootPath != undefined) {
+		if (rootPath !== undefined) {
 			fs.stat(rootPath, (err, stats) => {
 				if (err && err.code === 'ENOENT') {
 					vscode.window.showErrorMessage("You do not have access or permission to this file on the hard drive.");
@@ -94,7 +94,7 @@ export function activate(context: vscode.ExtensionContext) {
 							// The folder does not exist
 							vscode.window.showErrorMessage("Could not find an Assets Folder in the current workspace of VSCode. Please open the Unity root folder of the project you are working on.");
 						} else if (err) {
-							vscode.window.showErrorMessage("Something went wrong while checking Assets folder existence: " + err)
+							vscode.window.showErrorMessage("Something went wrong while checking Assets folder existence: " + err);
 						} else if (stats.isDirectory()) {
 							// Folder exists! Generate default folders. 
 
