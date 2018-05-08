@@ -1,23 +1,19 @@
-notifications:
- email: false
+sudo: false
 
-language: node_js
+os:
+  - osx
+  - linux
 
-node_js:
- - 8.11.1
-
-cache:
-  directories:
-    - node_modules
+before_install:
+  - if [ $TRAVIS_OS_NAME == "linux" ]; then
+      export CXX="g++-4.9" CC="gcc-4.9" DISPLAY=:99.0;
+      sh -e /etc/init.d/xvfb start;
+      sleep 3;
+    fi
 
 install:
- - "npm install -g typescript"
- - "npm install -g mocha"
- - "npm install"
- 
-deploy:
-  provider: script
-  skip_cleanup: true
-  script: scripts/deploy.sh
-  on:
-    tags: true
+  - npm install
+  - npm run vscode:prepublish
+
+script:
+  - npm test --silent
