@@ -79,6 +79,16 @@ You can also enable/disable the "Open Documentation" option in right-click menu 
 }
 ```
 
+If you rather search local documentation rather than online, set a value to unity-tools.localDocumentationPath:
+
+**NOTE:** This should end with a trailing slash `/`, but should not include `file:///` nor any filename like `index.html` or `30_search.html`
+
+```json
+{
+    "unity-tools.localDocumentationPath" : "Applications/Unity/Documentation/en/ScriptReference/"
+}
+```
+
 ## Other resources
 
 Here are some other resources I recommend:

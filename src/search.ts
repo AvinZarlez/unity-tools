@@ -10,8 +10,18 @@ export async function openURL(search_base?: string, s?: string) {
 		var search_blank_url, search_url;
 
 		if (search_base === "unity") {
-			search_blank_url = unity_search;
-			search_url = unity_search_url;
+			var settings: vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration('unity-tools');
+			var localPath = settings.get('localDocumentationPath',"");
+			
+			if (localPath === "") {
+				search_blank_url = unity_search;
+			}
+			else
+			{
+				search_blank_url = "file:///"+localPath+"30_search.html";
+			}
+
+			search_url = search_blank_url+unity_search_url;
 		}
 		else if (search_base === "msft") {
 			search_blank_url = msft_search;

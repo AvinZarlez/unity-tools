@@ -105,6 +105,11 @@
           "type": "boolean",
           "default": true,
           "description": "Enables the \"Open Documentation\" option on right-click menu."
+        },
+        "unity-tools.localDocumentationPath": {
+          "type": "string",
+          "default": "",
+          "description": "The path to local documentation, as opposed to going online. For example: \"Applications/Unity/Documentation/en/ScriptReference/\" - NOTE: Leave a trailing slash, but do not include any file target nor file:///"
         }
       }
     }
