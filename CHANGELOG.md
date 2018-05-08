@@ -2,6 +2,10 @@
 
 ## [1.0.2] - 2018-05-08
 
+### Added
+
+- Added Node back to .travis.yml
+
 ### Fixed
 
 - Fixed typo in deploy script
