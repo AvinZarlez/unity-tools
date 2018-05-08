@@ -4,17 +4,17 @@ let msdn_search 		= "https://social.msdn.microsoft.com/search/";
 let msdn_search_url 	= msdn_search + "?query=";
 
 //Open a URL using the npm module "opn"
-import opn = require("opn");
+let opn = require('opn');
 
 export function openURL(search_base?: string, s?: string) {
-    if (search_base == "open") { opn(s); } else {
+    if (search_base === "open") { opn(s); } else {
 		var search_blank_url, search_url;
 
-		if (search_base == "unity") {
+		if (search_base === "unity") {
 			search_blank_url = unity_search;
 			search_url = unity_search_url;
 		}
-		else if (search_base == "msdn") {
+		else if (search_base === "msdn") {
 			search_blank_url = msdn_search;
 			search_url = msdn_search_url;
 		}

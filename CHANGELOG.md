@@ -1,70 +1,78 @@
 # Changelog
 
-Version Number / Publish Date
+## [1.0.0] - 2018-05-08
 
--------------------
+### Changed
 
-## 0.2.1 / 2018-05-07
+- Updated project based on latest template. Including tests, config files, linting, etc.
+- Fixed misc. errors caused by above
 
-Removed dotBunny's VSCode extension feature as it is no longer needed to use VSCode with Unity
+## [0.2.1] - 2018-05-07
 
--------------------
+### Removed
 
-## 0.2.0 / 2018-05-07
+- Removed dotBunny's VSCode extension feature as it is no longer needed to use VSCode with Unity
 
-Turned extension into extension pack for "Unity.unity-debug" and "YclepticStudios.unity-snippets"
+## [0.2.0] - 2018-05-07
 
--------------------
+### Added
 
-## 0.1.17 / 2018-05-06
+- Turned extension into extension pack for "Unity.unity-debug" and "YclepticStudios.unity-snippets"
 
-Updated dependencies
+## [0.1.17] - 2018-05-06
 
--------------------
+### Changed
 
-## 0.1.16 / 2018-05-06
+- Updated dependencies
 
-Added setting to disable right click menu. Made right click menu only appear in c# files.
+## [0.1.16] - 2018-05-06
 
--------------------
+### Added
 
-## 0.1.15 / 2018-04-30
+- Added setting to disable right click menu. Made right click menu only appear in c# files.
 
-Bug fix: Organization folder setting should no longer give "Unknown configuration setting" error
+## [0.1.15] - 2018-04-30
 
--------------------
+### Fixed
 
-## 0.1.14 / 2018-04-30
+- Organization folder setting should no longer give "Unknown configuration setting" error
 
-Bug fix: Travis publishing was not working.
+## [0.1.14] - 2018-04-30
 
--------------------
+### Fixed
 
-## 0.1.13 / 2018-04-30
+- Travis publishing was not working.
 
-Updated Node version for Travis.
+## [0.1.13] - 2018-04-30
 
--------------------
+### Changed
 
-## 0.1.12 / 2018-04-30
+- Updated Node version for Travis.
 
-Bug fix: Organization folder settings should now load correctly from "unity-tools.defaultOrganizationFolders"
+## [0.1.12] - 2018-04-30
 
--------------------
+### Fixed
 
-## 0.1.11 / 2018-04-30
+- Organization folder settings should now load correctly from "unity-tools.defaultOrganizationFolders"
 
-Updated dependencies
+## [0.1.11] - 2018-04-30
 
--------------------
+### Changed
 
-## 0.1.10 / 2018-04-30
+- Updated dependencies
 
-Merged in PR from @ilgarmehmetali adding Open Docs feature to right-click menu
+## [0.1.10] - 2018-04-30
 
--------------------
+### Added
 
-## 0.1.2 / 2016-01-29
+- Merged in PR from @ilgarmehmetali adding Open Docs feature to right-click menu
 
-* Added CHANGELOG.md
-* Changed command name to fit standard format "Unity: < Command >"
+## [0.1.2] - 2016-01-29
+
+### Added
+
+- Added CHANGELOG.md
+
+### Changed
+
+- Changed command name to fit standard format "Unity: < Command >"

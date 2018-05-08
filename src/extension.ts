@@ -1,11 +1,13 @@
+'use strict';
 import * as vscode from 'vscode';
+
 import * as search from './search';
 import * as directories from './directories';
 
-import fs = require('fs');
+import * as fs from 'fs';
 
-function openDocErrorMessage(str) {
-	return vscode.window.showErrorMessage("Error: " + str, "Open Docs").then((item) => {
+function openDocErrorMessage(str: string) {
+	return vscode.window.showErrorMessage("Error: " + str, "Open Docs").then((item: string | undefined) => {
 		if (item === "Open Docs") {
 			search.openURL("unity");
 		}
@@ -49,7 +51,7 @@ export function activate(context: vscode.ExtensionContext) {
 	var search_docs = vscode.commands.registerCommand("unity-tools.SearchDocs", () => {
 		vscode.window.showInputBox({
 			prompt: "Search Unity Documentation:"
-		}).then((result) => {
+		}).then((result: string | undefined) => {
 			if (result != undefined) {
 				//Use the node module "open" to open a web browser
 				search.openURL("unity",result);
@@ -61,7 +63,7 @@ export function activate(context: vscode.ExtensionContext) {
 	var search_docs = vscode.commands.registerCommand("unity-tools.SearchMSDNDocs", () => {
 		vscode.window.showInputBox({
 			prompt: "Search MSDN Documentation:"
-		}).then((result) => {
+		}).then((result: string | undefined) => {
 			if (result != undefined) {
 				//Use the node module "open" to open a web browser
 				search.openURL("msdn",result);
