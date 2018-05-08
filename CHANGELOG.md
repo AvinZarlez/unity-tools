@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.1] - 2018-05-08
+
+### Fixed
+
+- Added deploy back to travis file
+
 ## [1.0.0] - 2018-05-08
 
 ### Changed
