@@ -1,9 +1,16 @@
 # Changelog
 
-## [Unreleased]
+## [1.0.3] - 2018-05-09
+
+### Added 
+
+- Made project multi root folder ready
+
+### Fixed
 
 - Made so only the linux builds from travis get published.
 - Updated Node version
+- removed redundant default setting value
 
 ## [1.0.2] - 2018-05-08
 

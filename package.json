@@ -27,7 +27,8 @@
     "unity3d",
     "docs",
     "documentation",
-    "asset store"
+    "asset store",
+    "multi-root ready"
   ],
   "activationEvents": [
     "onCommand:unity-tools.OpenDocs",
