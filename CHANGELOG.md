@@ -2,7 +2,7 @@
 
 ## [1.0.3] - 2018-05-09
 
-### Added 
+### Added
 
 - Made project multi root folder ready
 
