@@ -3,6 +3,7 @@
 ## [Unreleased]
 
 - Made so only the linux builds from travis get published.
+- Updated Node version
 
 ## [1.0.2] - 2018-05-08
 
