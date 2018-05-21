@@ -2,7 +2,7 @@
   "name": "unity-tools",
   "displayName": "Unity Tools",
   "description": "Various tools to help with Unity development",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "publisher": "Tobiah",
   "engines": {
     "vscode": "^1.23.0"
@@ -18,8 +18,7 @@
     "Extension Packs"
   ],
   "extensionDependencies": [
-    "Unity.unity-debug",
-    "YclepticStudios.unity-snippets"
+    "Unity.unity-debug"
   ],
   "bugs": "https://github.com/TobiahZ/unity-tools/issues",
   "keywords": [
