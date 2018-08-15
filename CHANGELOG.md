@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.5] - 2018-08-15
+
+### Fixed
+
+- Updated extensionDependencies to extensionPack as per new feature in VSCode.
+
 ## [1.0.3] - 2018-05-09
 
 ### Added
