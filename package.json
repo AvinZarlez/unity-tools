@@ -17,7 +17,7 @@
     "Other",
     "Extension Packs"
   ],
-  "extensionDependencies": [
+  "extensionPack": [
     "Unity.unity-debug"
   ],
   "bugs": "https://github.com/TobiahZ/unity-tools/issues",
