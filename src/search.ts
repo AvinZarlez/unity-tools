@@ -1,29 +1,29 @@
-let unity_search 		= "http://docs.unity3d.com/ScriptReference/30_search.html";
-let unity_search_url 	= unity_search + "?q=";
-let msdn_search 		= "https://social.msdn.microsoft.com/search/";
-let msdn_search_url 	= msdn_search + "?query=";
+let unity_search = "http://docs.unity3d.com/ScriptReference/30_search.html";
+let unity_search_url = unity_search + "?q=";
+let msft_search = "https://docs.microsoft.com/en-us/search/index?search=";
+let msft_search_url = msft_search + "?query=";
 
-//Open a URL using the npm module "opn"
-let opn = require('opn');
+import * as vscode from 'vscode';
 
-export function openURL(search_base?: string, s?: string) {
-    if (search_base === "open") { opn(s); } else {
+export async function openURL(search_base?: string, s?: string) {
+	if (search_base === "open") { await vscode.env.openExternal(vscode.Uri.parse(s)); } else {
 		var search_blank_url, search_url;
 
 		if (search_base === "unity") {
 			search_blank_url = unity_search;
 			search_url = unity_search_url;
 		}
-		else if (search_base === "msdn") {
-			search_blank_url = msdn_search;
-			search_url = msdn_search_url;
+		else if (search_base === "msft") {
+			search_blank_url = msft_search;
+			search_url = msft_search_url;
 		}
 
 		if (!s) { s = search_blank_url; }
 		else { s = search_url + s; }
-		
-		opn(s);
-    }
+
+		await vscode.env.openExternal(vscode.Uri.parse(s));
+
+	}
 	return true;
 }
 
@@ -48,5 +48,5 @@ export function prepareInput(input: string, start: number, end: number) {
 
 export function openUnityDocs(input: string, start: number, end: number) {
 	//Use the node module "opn" to open a web browser
-	openURL("unity",prepareInput(input, start, end));
+	openURL("unity", prepareInput(input, start, end));
 }

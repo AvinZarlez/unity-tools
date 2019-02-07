@@ -42,9 +42,9 @@ Use the pallet command "Unity Tools: Open Documentation for Selection" (`Cmd+'` 
 
 Use the pallet command "Unity Tools: Search Documentation" (Shortcut: `Cmd+Shift+'` on OSX or `Ctrl+Shift+'` on Windows and Linux) where you can quickly enter whatever you want to search for.
 
-### Command: Search MSDN Documentation
+### Command: Search MSFT Documentation
 
-Use the pallet command "Unity Tools: Search MSDN Documentation" where you can enter whatever you want to search the MSDN documentation for.
+Use the pallet command "Unity Tools: Search MSFT Documentation" where you can enter whatever you want to search the MSFT documentation for.
 
 ### Command: Open VSCode Documentation
 

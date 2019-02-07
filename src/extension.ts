@@ -60,13 +60,13 @@ export function activate(context: vscode.ExtensionContext) {
 	});
 	context.subscriptions.push(searchUnityDocs);
 
-	var searchMSDocs = vscode.commands.registerCommand("unity-tools.SearchMSDNDocs", () => {
+	var searchMSDocs = vscode.commands.registerCommand("unity-tools.SearchMSFTDocs", () => {
 		vscode.window.showInputBox({
-			prompt: "Search MSDN Documentation:"
+			prompt: "Search MSFT Documentation:"
 		}).then((result: string | undefined) => {
 			if (result !== undefined) {
 				//Use the node module "open" to open a web browser
-				search.openURL("msdn", result);
+				search.openURL("msft", result);
 			}
 		});
 	});
