@@ -83,12 +83,9 @@ If you rather search local documentation rather than online, set a value to unit
 
 **NOTE:** unity-tools.localDocumentationPath should end with a trailing slash `/`, but should not include `file:///` nor any filename like `index.html` or `30_search.html`
 
-Due to the nature of queries in local file paths (at least on Windows, I have not tested on Mac/Linux), you are also required to set a default browser with unity-tools.localDocumentationViewer. For example, "firefox", "iexplore", or "chrome". If you do not set this, or set it as blank, the documentation will open but your query/selection will be lost.
-
 ```json
 {
-    "unity-tools.localDocumentationPath" : "Applications/Unity/Documentation/en/ScriptReference/",
-    "unity-tools.localDocumentationViewer" : "firefox"
+    "unity-tools.localDocumentationPath" : "Applications/Unity/Documentation/en/ScriptReference/"
 }
 ```
 

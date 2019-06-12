@@ -1,15 +1,14 @@
 let unity_search = "http://docs.unity3d.com/ScriptReference/30_search.html";
-let unity_search_url = unity_search + "?q=";
+let unity_search_url = "?q=";
 let msft_search = "https://docs.microsoft.com/";
-let msft_search_url = msft_search + "en-us/search/index?search=";
+let msft_search_url = "en-us/search/index?search=";
 
 import * as vscode from 'vscode';
 
 export async function openURL(search_base?: string, s?: string) {
 	if (search_base === "open") { await vscode.env.openExternal(vscode.Uri.parse(s as string)); } else {
 		var search_blank_url, search_url;
-		
-		var appPath = "";
+		var local:boolean = false;
 
 		if (search_base === "unity") {
 			var settings: vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration('unity-tools');
@@ -20,21 +19,26 @@ export async function openURL(search_base?: string, s?: string) {
 			}
 			else
 			{
-				search_blank_url = "file:///"+localPath+"30_search.html";
-				
-				appPath = settings.get('localDocumentationViewer',"firefox");
+				search_blank_url = localPath+"30_search.html";
+				local = true;
 			}
 			search_url = search_blank_url+unity_search_url;
 		}
 		else if (search_base === "msft") {
 			search_blank_url = msft_search;
-			search_url = msft_search_url;
+			search_url = msft_search + msft_search_url;
 		}
 
 		if (!s) { s = search_blank_url; }
 		else { s = search_url + s; }
 
-		await vscode.env.openExternal(vscode.Uri.parse(s as string));
+		if (local) {
+			await vscode.env.openExternal(vscode.Uri.file(s as string));
+		}
+		else
+		{
+			await vscode.env.openExternal(vscode.Uri.parse(s as string));
+		}
 
 	}
 	return true;

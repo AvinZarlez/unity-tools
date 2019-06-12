@@ -110,11 +110,6 @@
           "type": "string",
           "default": "",
           "description": "The path to local documentation, as opposed to going online. For example: \"Applications/Unity/Documentation/en/ScriptReference/\" - NOTE: Leave a trailing slash, but do not include any file target nor file:///"
-        },
-        "unity-tools.localDocumentationViewer": {
-          "type": "string",
-          "default": "firefox",
-          "description": "The path command for the browser you'd like to use to open local file documentation. Example: firefox, iexplore, chrome. Must be defined if using unity-tools.localDocumentationPath"
         }
       }
     }
