@@ -4,6 +4,7 @@ let msft_search = "https://docs.microsoft.com/";
 let msft_search_url = "en-us/search/index?search=";
 
 import * as vscode from 'vscode';
+const open = require('open');
 
 export async function openURL(search_base?: string, s?: string) {
 	if (search_base === "open") { await vscode.env.openExternal(vscode.Uri.parse(s as string)); } else {
@@ -20,9 +21,9 @@ export async function openURL(search_base?: string, s?: string) {
 			}
 			else
 			{
-				appPath = settings.get('localDocumentationViewer',"firefox");
+				appPath = settings.get('localDocumentationViewer',"");
 
-				search_blank_url = localPath+"30_search.html";
+				search_blank_url = "file:///"+localPath+"30_search.html";
 				local = true;
 			}
 			search_url = search_blank_url+unity_search_url;
@@ -36,7 +37,7 @@ export async function openURL(search_base?: string, s?: string) {
 		else { s = search_url + s; }
 
 		if (local) {
-			// TODO: Add Opn here
+			await open(s as string, { app: appPath });
 		}
 		else
 		{

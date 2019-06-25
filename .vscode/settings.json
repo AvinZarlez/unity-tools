@@ -5,13 +5,12 @@
     "search.exclude": {
         "out": true // set this to false to include "out" folder in search results
     },
-    "cSpell.words": [
-        "ilgarmehmetali",
-        "msft",
-        "ycleptic"
-    ],
     "markdownlint.config": {
         "MD026": { "punctuation": ".,;:!" },
         "MD024": false
-    }
+    },
+    "cSpell.ignoreWords": [
+        "iexplore",
+        "msft"
+    ]
 }
