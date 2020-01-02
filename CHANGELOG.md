@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2] - 2020-01-02
+
+### Added
+
+- Search local documentation. NOTE: THIS IS UNTESTED ON MAC AND LINUX! Thanks [@rostok](https://github.com/rostok) for the help.
+- Set documentation version for online documentation. Thanks [@mccorkle](https://github.com/mccorkle)
+
 ## [1.1.1] - 2019-06-05
 
 ### Fixed
