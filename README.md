@@ -71,6 +71,14 @@ To do this simply open or create `./.vscode/settings.json` and fill in the below
 }
 ```
 
+You can also set which Unity version should be used when accessing online documentation. Make sure the version number you enter is valid for Unity's documentation.
+
+```json
+{
+    "unity-tools.documentationVersion" : "2018.4"
+}
+```
+
 You can also enable/disable the "Open Documentation" option in right-click menu by the below setting. Default value is true.
 
 ```json
@@ -81,11 +89,11 @@ You can also enable/disable the "Open Documentation" option in right-click menu 
 
 If you rather search local documentation rather than online, set a value to unity-tools.localDocumentationPath.
 
-**NOTE:** unity-tools.localDocumentationPath should end with a trailing slash `/`, but should not include `file:///` nor any filename like `index.html` or `30_search.html`
+**NOTE:** unity-tools.localDocumentationPath should NOT include a trailing slash `/`, `file:///` nor any filename like `index.html` or `30_search.html`
 
 Due to the nature of queries in local file paths (at least on Windows, I have not tested on Mac/Linux), you are also required to set a default browser with unity-tools.localDocumentationViewer. For example, `firefox`, `iexplore`, or `chrome`. You can also set the exact path, if your browser doesn't have a command. Example: `C:/Program Files/Mozilla Firefox/firefox.exe`
 
-If you do not set localDocumentationViewer, localDocumentationPath will not work.
+If you do not set localDocumentationViewer, localDocumentationPath will not work. This may or may not be true on Mac or Linux, I have not had the opportunity to test it! If you have, please let me know.
 
 ```json
 {

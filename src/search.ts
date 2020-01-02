@@ -1,4 +1,6 @@
-let unity_search = "http://docs.unity3d.com/ScriptReference/30_search.html";
+// Unity search url broken up to allow for documentation version
+let unity_search_root = "http://docs.unity3d.com/";
+let unity_search_path = "ScriptReference/30_search.html";
 let unity_search_url = "?q=";
 let msft_search = "https://docs.microsoft.com/";
 let msft_search_url = "en-us/search/index?search=";
@@ -10,20 +12,30 @@ export async function openURL(search_base?: string, s?: string) {
 	if (search_base === "open") { await vscode.env.openExternal(vscode.Uri.parse(s as string)); } else {
 		var search_blank_url, search_url;
 		var local:boolean = false;
-		var appPath = "";
+		var appPath: string = "";
 
 		if (search_base === "unity") {
 			var settings: vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration('unity-tools');
-			var localPath = settings.get('localDocumentationPath',"");
+			var localPath: string = settings.get('localDocumentationPath',"");
 			
 			if (localPath === "") {
-				search_blank_url = unity_search;
+				var documentationVersion: string = settings.get('documentationVersion',"");
+				if (documentationVersion === "") {
+					search_blank_url = unity_search_root+unity_search_path;
+				}
+				else
+				{
+					search_blank_url = unity_search_root + documentationVersion + "/Documentation/" + unity_search_path;
+				}
 			}
 			else
 			{
 				appPath = settings.get('localDocumentationViewer',"");
-
-				search_blank_url = "file:///"+localPath+"30_search.html";
+				if (appPath === "") {
+					vscode.window.showErrorMessage("Please set localDocumentationViewer to a valid browser");
+					return false;
+				}
+				search_blank_url = "file:///"+localPath+"/30_search.html";
 				local = true;
 			}
 			search_url = search_blank_url+unity_search_url;
