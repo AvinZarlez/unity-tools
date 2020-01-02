@@ -12,7 +12,7 @@ export async function openURL(search_base?: string, s?: string) {
 	if (search_base === "open") { await vscode.env.openExternal(vscode.Uri.parse(s as string)); } else {
 		var search_blank_url, search_url;
 		var local:boolean = false;
-		var appPath: string = "";
+		var appPath:string = "";
 
 		if (search_base === "unity") {
 			var settings: vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration('unity-tools');
@@ -31,10 +31,6 @@ export async function openURL(search_base?: string, s?: string) {
 			else
 			{
 				appPath = settings.get('localDocumentationViewer',"");
-				if (appPath === "") {
-					vscode.window.showErrorMessage("Please set localDocumentationViewer to a valid browser");
-					return false;
-				}
 				search_blank_url = "file:///"+localPath+"/30_search.html";
 				local = true;
 			}
