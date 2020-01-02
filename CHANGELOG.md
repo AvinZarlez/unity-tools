@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.1] - 2020-01-02
+
+### Fixed
+
+- Updated unit tests
+
 ## [1.2] - 2020-01-02
 
 ### Added
