@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.2] - 2020-01-02
+
+### Fixed
+
+- Updated open version to 6.4
+
 ## [1.2.1] - 2020-01-02
 
 ### Fixed
