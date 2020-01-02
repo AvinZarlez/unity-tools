@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.3] - 2020-01-02
+
+### Fixed
+
+- Added npm i to deploy script
+
 ## [1.2.2] - 2020-01-02
 
 ### Fixed
