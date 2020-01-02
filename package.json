@@ -144,6 +144,6 @@
   },
   "icon": "unity-logo.png",
   "dependencies": {
-    "open": "^6.3.0"
+    "open": "^6.4.0"
   }
 }
