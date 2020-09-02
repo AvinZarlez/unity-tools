@@ -35,4 +35,4 @@ jobs:
       if: success() && startsWith( github.ref, 'refs/tags/v') && matrix.os == 'ubuntu-latest'
       run: npm run deploy
       env:
-        VSCE_PAT: $
+        VSCE_PAT: ${{ secrets.VSCE_PAT }}
