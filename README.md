@@ -1,6 +1,6 @@
 # Unity Tools for Visual Studio Code
 
-[![Build Status](https://travis-ci.org/TobiahZ/unity-tools.svg?branch=master)](https://travis-ci.org/TobiahZ/unity-tools)
+![.github/workflows/main.yml](https://github.com/TobiahZ/unity-tools/workflows/.github/workflows/main.yml/badge.svg)
 
 [![Marketplace Version](https://vsmarketplacebadge.apphb.com/version/Tobiah.unity-tools.svg)](https://marketplace.visualstudio.com/items?itemName=Tobiah.unity-tools)
 [![Installs](https://vsmarketplacebadge.apphb.com/installs/Tobiah.unity-tools.svg)](https://marketplace.visualstudio.com/items?itemName=Tobiah.unity-tools)
