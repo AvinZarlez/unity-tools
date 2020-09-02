@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.4] - 2020-09-02
+
+### Fixed
+
+- Updated packages
+
 ## [1.2.3] - 2020-01-02
 
 ### Fixed
