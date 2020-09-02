@@ -2,9 +2,8 @@ on:
   push:
     branches:
       - master
-  release:
-    types:
-    - created
+    tags:
+      - 'v*'
 
 jobs:
   build:
@@ -20,14 +19,18 @@ jobs:
       with:
         node-version: 10.x
     - run: npm install
-    - run: echo ${{ github.ref }}
-    - run: echo ${{ matrix.os }}
     - name: Run tests
       uses: GabrielBB/xvfb-action@v1.2
       with:
         run: npm test
+    - name: Create Release
+      if: success() && startsWith( github.ref, 'refs/tags/v*') && matrix.os == 'ubuntu-latest'
+      uses: actions/create-release@v1
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
     - name: Publish
-      if: success() && startsWith( github.ref, 'refs/tags/releases/') && matrix.os == 'ubuntu-latest'
+      if: success() && startsWith( github.ref, 'refs/tags/v*') && matrix.os == 'ubuntu-latest'
       run: npm run deploy
       env:
         VSCE_PAT: $
