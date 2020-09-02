@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.2.5] - 2020-09-02
+
+### Fixed
+
+- Updated packages
+
+### Changed
+
+- Using GitHub Actions instead of Travis
+
 ## [1.2.4] - 2020-09-02
 
 ### Fixed
