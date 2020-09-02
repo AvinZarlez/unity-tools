@@ -20,8 +20,8 @@ jobs:
       with:
         node-version: 10.x
     - run: npm install
-    - run: echo github.ref
-    - run: echo matrix.os
+    - run: echo ${{ github.ref }}
+    - run: echo ${{ matrix.os }}
     - name: Run tests
       uses: GabrielBB/xvfb-action@v1.2
       with:
