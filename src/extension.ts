@@ -26,7 +26,7 @@ export function activate(context: vscode.ExtensionContext) {
 			// selection[0] is the start, and selection[1] is the end
 			let selection = textEditor.selection;
 			if (!selection.isSingleLine) {
-				openDocErrorMessage("Multiple lines selected, please just select a class.");
+				openDocErrorMessage("Multiple lines selected, please select a single line.");
 				return;
 			}
 
@@ -103,12 +103,10 @@ export function activate(context: vscode.ExtensionContext) {
 
 								var folderList: string[] | undefined = settings.get('defaultOrganizationFolders');
 
-								if (folderList === undefined)
-								{
+								if (folderList === undefined) {
 									vscode.window.showErrorMessage("Could not load defaultOrganizationFolders setting.");
 								}
-								else
-								{
+								else {
 									directories.GenerateOrganizationFolders(rootPath, folderList);
 									vscode.window.showInformationMessage("Folders generated successfully");
 								}

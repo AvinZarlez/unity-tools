@@ -63,7 +63,8 @@ Added the pallet command "Unity Tools: Generate Organizational Folders" to creat
 ### Configuration
 
 The Unity-Tools command Generate Organizational Folders can be configured to create a set of folders of your choosing, instead of the 5 default ones: Scenes, Scripts, Prefabs, Materials, and Audio.
-To do this simply open or create `./.vscode/settings.json` and fill in the below fields.
+
+To do this, create or open your `./.vscode/settings.json` file and fill in the below fields:
 
 ```json
 {
