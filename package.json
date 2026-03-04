@@ -147,5 +147,8 @@
   "icon": "unity-logo.png",
   "dependencies": {
     "open": "^6.4.0"
+  },
+  "overrides": {
+    "serialize-javascript": "^7.0.3"
   }
 }
