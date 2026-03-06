@@ -45,7 +45,7 @@ export async function openURL(search_base?: string, s?: string) {
 		else { s = search_url + s; }
 
 		if (local) {
-			await open(s as string, { app: appPath });
+			await open(s as string, { app: { name: appPath } });
 		}
 		else
 		{
