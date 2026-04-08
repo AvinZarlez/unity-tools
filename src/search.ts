@@ -6,7 +6,6 @@ let msft_search = "https://docs.microsoft.com/";
 let msft_search_url = "en-us/search/index?search=";
 
 import * as vscode from 'vscode';
-const open = require('open');
 
 export async function openURL(search_base?: string, s?: string) {
 	if (search_base === "open") { await vscode.env.openExternal(vscode.Uri.parse(s as string)); } else {
@@ -45,7 +44,8 @@ export async function openURL(search_base?: string, s?: string) {
 		else { s = search_url + s; }
 
 		if (local) {
-			await open(s as string, { app: { name: appPath } });
+			const { default: openApp } = await import('open');
+			await openApp(s as string, { app: { name: appPath } });
 		}
 		else
 		{
