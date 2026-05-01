@@ -1,3 +1,917 @@
-"use strict";var rr=Object.create;var F=Object.defineProperty;var or=Object.getOwnPropertyDescriptor;var tr=Object.getOwnPropertyNames;var nr=Object.getPrototypeOf,sr=Object.prototype.hasOwnProperty;var p=(e,r)=>()=>(e&&(r=e(e=0)),r);var ne=(e,r)=>{for(var o in r)F(e,o,{get:r[o],enumerable:!0})},se=(e,r,o,t)=>{if(r&&typeof r=="object"||typeof r=="function")for(let n of tr(r))!sr.call(e,n)&&n!==o&&F(e,n,{get:()=>r[n],enumerable:!(t=or(r,n))||t.enumerable});return e};var f=(e,r,o)=>(o=e!=null?rr(nr(e)):{},se(r||!e||!e.__esModule?F(o,"default",{value:e,enumerable:!0}):o,e)),ir=e=>se(F({},"__esModule",{value:!0}),e);function ar(){try{return _.default.statSync("/.dockerenv"),!0}catch{return!1}}function cr(){try{return _.default.readFileSync("/proc/self/cgroup","utf8").includes("docker")}catch{return!1}}function k(){return U===void 0&&(U=ar()||cr()),U}var _,U,ie=p(()=>{_=f(require("node:fs"),1)});function x(){return H===void 0&&(H=mr()||k()),H}var ae,H,mr,N=p(()=>{ae=f(require("node:fs"),1);ie();mr=()=>{try{return ae.default.statSync("/run/.containerenv"),!0}catch{return!1}}});var R,me,B,ce,g,z=p(()=>{R=f(require("node:process"),1),me=f(require("node:os"),1),B=f(require("node:fs"),1);N();ce=()=>{if(R.default.platform!=="linux")return!1;if(me.default.release().toLowerCase().includes("microsoft"))return!x();try{if(B.default.readFileSync("/proc/version","utf8").toLowerCase().includes("microsoft"))return!x()}catch{}return B.default.existsSync("/proc/sys/fs/binfmt_misc/WSLInterop")||B.default.existsSync("/run/WSL")?!x():!1},g=R.default.env.__IS_WSL_TEST__?ce:ce()});var $,fe,de,le,fr,G,u,V=p(()=>{$=f(require("node:process"),1),fe=require("node:buffer"),de=require("node:util"),le=f(require("node:child_process"),1),fr=(0,de.promisify)(le.default.execFile),G=()=>`${$.default.env.SYSTEMROOT||$.default.env.windir||String.raw`C:\Windows`}\\System32\\WindowsPowerShell\\v1.0\\powershell.exe`,u=async(e,r={})=>{let{powerShellPath:o,...t}=r,n=u.encodeCommand(e);return fr(o??G(),[...u.argumentsPrefix,n],{encoding:"utf8",...t})};u.argumentsPrefix=["-NoProfile","-NonInteractive","-ExecutionPolicy","Bypass","-EncodedCommand"];u.encodeCommand=e=>fe.Buffer.from(e,"utf16le").toString("base64");u.escapeArgument=e=>`'${String(e).replaceAll("'","''")}'`});function pe(e){for(let r of e.split(`
-`)){if(/^\s*#/.test(r))continue;let o=/^\s*root\s*=\s*(?<mountPoint>"[^"]*"|'[^']*'|[^#]*)/.exec(r);if(o)return o.groups.mountPoint.trim().replaceAll(/^["']|["']$/g,"")}}var ue=p(()=>{});var ge,he,y,dr,lr,pr,M,we,ve,xe,ye,Se=p(()=>{ge=require("node:util"),he=f(require("node:child_process"),1),y=f(require("node:fs/promises"),1);z();V();ue();z();dr=(0,ge.promisify)(he.default.execFile),lr=(()=>{let e="/mnt/",r;return async function(){if(r)return r;let o="/etc/wsl.conf",t=!1;try{await y.default.access(o,y.constants.F_OK),t=!0}catch{}if(!t)return e;let n=await y.default.readFile(o,{encoding:"utf8"}),c=pe(n);return c===void 0?e:(r=c,r=r.endsWith("/")?r:`${r}/`,r)}})(),pr=async()=>`${await lr()}c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe`,M=g?pr:G,ve=async()=>(we??=(async()=>{try{let e=await M();return await y.default.access(e,y.constants.X_OK),!0}catch{return!1}})(),we),xe=async()=>{let e=await M(),r=String.raw`(Get-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\Shell\Associations\UrlAssociations\http\UserChoice").ProgId`,{stdout:o}=await u(r,{powerShellPath:e});return o.trim()},ye=async e=>{if(/^[a-z]+:\/\//i.test(e))return e;try{let{stdout:r}=await dr("wslpath",["-aw",e],{encoding:"utf8"});return r.trim()}catch{return e}}});function S(e,r,o){let t=n=>Object.defineProperty(e,r,{value:n,enumerable:!0,writable:!0});return Object.defineProperty(e,r,{configurable:!0,enumerable:!0,get(){let n=o();return t(n),n},set(n){t(n)}}),e}var Pe=p(()=>{});async function X(){if(Ae.default.platform!=="darwin")throw new Error("macOS only");let{stdout:e}=await ur("defaults",["read","com.apple.LaunchServices/com.apple.launchservices.secure","LSHandlers"]),o=/LSHandlerRoleAll = "(?!-)(?<id>[^"]+?)";\s+?LSHandlerURLScheme = (?:http|https);/.exec(e)?.groups.id??"com.apple.Safari";return o==="com.apple.safari"?"com.apple.Safari":o}var Ee,Ae,Ce,ur,be=p(()=>{Ee=require("node:util"),Ae=f(require("node:process"),1),Ce=require("node:child_process"),ur=(0,Ee.promisify)(Ce.execFile)});async function Me(e,{humanReadableOutput:r=!0,signal:o}={}){if(Fe.default.platform!=="darwin")throw new Error("macOS only");let t=r?[]:["-ss"],n={};o&&(n.signal=o);let{stdout:c}=await wr("osascript",["-e",e,t],n);return c.trim()}var Fe,Be,K,wr,Oe=p(()=>{Fe=f(require("node:process"),1),Be=require("node:util"),K=require("node:child_process"),wr=(0,Be.promisify)(K.execFile)});async function Y(e){return Me(`tell application "Finder" to set app_path to application file id "${e}" as string
-tell application "System Events" to get value of property list item "CFBundleName" of property list file (app_path & ":Contents:Info.plist")`)}var Ie=p(()=>{Oe()});async function Q(e=gr){let{stdout:r}=await e("reg",["QUERY"," HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\Shell\\Associations\\UrlAssociations\\http\\UserChoice","/v","ProgId"]),o=/ProgId\s*REG_SZ\s*(?<id>\S+)/.exec(r);if(!o)throw new q(`Cannot find Windows browser in stdout: ${JSON.stringify(r)}`);let{id:t}=o.groups,n=t.lastIndexOf("."),c=t.lastIndexOf("-"),i=n===-1?void 0:t.slice(0,n),w=c===-1?void 0:t.slice(0,c);return O[t]??O[i]??O[w]??{name:t,id:t}}var De,Te,gr,O,J,q,Z=p(()=>{De=require("node:util"),Te=require("node:child_process"),gr=(0,De.promisify)(Te.execFile),O={MSEdgeHTM:{name:"Edge",id:"com.microsoft.edge"},MSEdgeBHTML:{name:"Edge Beta",id:"com.microsoft.edge.beta"},MSEdgeDHTML:{name:"Edge Dev",id:"com.microsoft.edge.dev"},AppXq0fevzme2pys62n3e0fbqa7peapykr8v:{name:"Edge",id:"com.microsoft.edge.old"},ChromeHTML:{name:"Chrome",id:"com.google.chrome"},ChromeBHTML:{name:"Chrome Beta",id:"com.google.chrome.beta"},ChromeDHTML:{name:"Chrome Dev",id:"com.google.chrome.dev"},ChromiumHTM:{name:"Chromium",id:"org.chromium.Chromium"},BraveHTML:{name:"Brave",id:"com.brave.Browser"},BraveBHTML:{name:"Brave Beta",id:"com.brave.Browser.beta"},BraveDHTML:{name:"Brave Dev",id:"com.brave.Browser.dev"},BraveSSHTM:{name:"Brave Nightly",id:"com.brave.Browser.nightly"},FirefoxURL:{name:"Firefox",id:"org.mozilla.firefox"},OperaStable:{name:"Opera",id:"com.operasoftware.Opera"},VivaldiHTM:{name:"Vivaldi",id:"com.vivaldi.Vivaldi"},"IE.HTTP":{name:"Internet Explorer",id:"com.microsoft.ie"}},J=new Map(Object.entries(O)),q=class extends Error{}});async function j(){if(I.default.platform==="darwin"){let e=await X();return{name:await Y(e),id:e}}if(I.default.platform==="linux"){let{stdout:e}=await hr("xdg-mime",["query","default","x-scheme-handler/http"]),r=e.trim();return{name:vr(r.replace(/.desktop$/,"").replace("-"," ")),id:r}}if(I.default.platform==="win32")return Q();throw new Error("Only macOS, Linux, and Windows are supported")}var Le,I,We,hr,vr,Ue=p(()=>{Le=require("node:util"),I=f(require("node:process"),1),We=require("node:child_process");be();Ie();Z();Z();hr=(0,Le.promisify)(We.execFile),vr=e=>e.toLowerCase().replaceAll(/(?:^|\s|-)\S/g,r=>r.toUpperCase())});var D,xr,_e,ke=p(()=>{D=f(require("node:process"),1),xr=!!(D.default.env.SSH_CONNECTION||D.default.env.SSH_CLIENT||D.default.env.SSH_TTY),_e=xr});var Xe={};ne(Xe,{apps:()=>P,default:()=>Pr,openApp:()=>Sr});function ze(e){if(typeof e=="string"||Array.isArray(e))return e;let{[Ne]:r}=e;if(!r)throw new Error(`${Ne} is not supported`);return r}function b({[E]:e},{wsl:r}={}){if(r&&g)return ze(r);if(!e)throw new Error(`${E} is not supported`);return ze(e)}var re,oe,Ge,Ve,L,$e,T,ee,He,E,Ne,Re,C,yr,Sr,P,Pr,Ke=p(()=>{re=f(require("node:process"),1),oe=f(require("node:path"),1),Ge=require("node:url"),Ve=f(require("node:child_process"),1),L=f(require("node:fs/promises"),1);Se();V();Pe();Ue();N();ke();$e={},T=Symbol("fallbackAttempt"),ee=$e.url?oe.default.dirname((0,Ge.fileURLToPath)($e.url)):"",He=oe.default.join(ee,"xdg-open"),{platform:E,arch:Ne}=re.default,Re=async(e,r)=>{if(e.length===0)return;let o=[];for(let t of e)try{return await r(t)}catch(n){o.push(n)}throw new AggregateError(o,"Failed to open in all supported apps")},C=async e=>{e={wait:!1,background:!1,newInstance:!1,allowNonzeroExitCode:!1,...e};let r=e[T]===!0;if(delete e[T],Array.isArray(e.app))return Re(e.app,s=>C({...e,app:s,[T]:!0}));let{name:o,arguments:t=[]}=e.app??{};if(t=[...t],Array.isArray(o))return Re(o,s=>C({...e,app:{name:s,arguments:t},[T]:!0}));if(o==="browser"||o==="browserPrivate"){let s={"com.google.chrome":"chrome","google-chrome.desktop":"chrome","com.brave.browser":"brave","org.mozilla.firefox":"firefox","firefox.desktop":"firefox","com.microsoft.msedge":"edge","com.microsoft.edge":"edge","com.microsoft.edgemac":"edge","microsoft-edge.desktop":"edge","com.apple.safari":"safari"},m={chrome:"--incognito",brave:"--incognito",firefox:"--private-window",edge:"--inPrivate"},l;if(g){let v=await xe();l=J.get(v)??{}}else l=await j();if(l.id in s){let v=s[l.id.toLowerCase()];if(o==="browserPrivate"){if(v==="safari")throw new Error("Safari doesn't support opening in private mode via command line");t.push(m[v])}return C({...e,app:{name:P[v],arguments:t}})}throw new Error(`${l.name} is not supported as a default browser`)}let n,c=[],i={},w=!1;if(g&&!x()&&!_e&&!o&&(w=await ve()),E==="darwin")n="open",e.wait&&c.push("--wait-apps"),e.background&&c.push("--background"),e.newInstance&&c.push("--new"),o&&c.push("-a",o);else if(E==="win32"||w){n=await M(),c.push(...u.argumentsPrefix),g||(i.windowsVerbatimArguments=!0),g&&e.target&&(e.target=await ye(e.target));let s=["$ProgressPreference = 'SilentlyContinue';","Start"];e.wait&&s.push("-Wait"),o?(s.push(u.escapeArgument(o)),e.target&&t.push(e.target)):e.target&&s.push(u.escapeArgument(e.target)),t.length>0&&(t=t.map(m=>u.escapeArgument(m)),s.push("-ArgumentList",t.join(","))),e.target=u.encodeCommand(s.join(" ")),e.wait||(i.stdio="ignore")}else{if(o)n=o;else{let s=!ee||ee==="/",m=!1;try{await L.default.access(He,L.constants.X_OK),m=!0}catch{}n=re.default.versions.electron??(E==="android"||s||!m)?"xdg-open":He}t.length>0&&c.push(...t),e.wait||(i.stdio="ignore",i.detached=!0)}E==="darwin"&&t.length>0&&c.push("--args",...t),e.target&&c.push(e.target);let a=Ve.default.spawn(n,c,i);return e.wait?new Promise((s,m)=>{a.once("error",m),a.once("close",l=>{if(!e.allowNonzeroExitCode&&l!==0){m(new Error(`Exited with code ${l}`));return}s(a)})}):r?new Promise((s,m)=>{a.once("error",m),a.once("spawn",()=>{a.once("close",l=>{if(a.off("error",m),l!==0){m(new Error(`Exited with code ${l}`));return}a.unref(),s(a)})})}):(a.unref(),new Promise((s,m)=>{a.once("error",m),a.once("spawn",()=>{a.off("error",m),s(a)})}))},yr=(e,r)=>{if(typeof e!="string")throw new TypeError("Expected a `target`");return C({...r,target:e})},Sr=(e,r)=>{if(typeof e!="string"&&!Array.isArray(e))throw new TypeError("Expected a valid `name`");let{arguments:o=[]}=r??{};if(o!=null&&!Array.isArray(o))throw new TypeError("Expected `appArguments` as Array type");return C({...r,app:{name:e,arguments:o}})};P={browser:"browser",browserPrivate:"browserPrivate"};S(P,"chrome",()=>b({darwin:"google chrome",win32:"chrome",linux:["google-chrome","google-chrome-stable","chromium","chromium-browser"]},{wsl:{ia32:"/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe",x64:["/mnt/c/Program Files/Google/Chrome/Application/chrome.exe","/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe"]}}));S(P,"brave",()=>b({darwin:"brave browser",win32:"brave",linux:["brave-browser","brave"]},{wsl:{ia32:"/mnt/c/Program Files (x86)/BraveSoftware/Brave-Browser/Application/brave.exe",x64:["/mnt/c/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe","/mnt/c/Program Files (x86)/BraveSoftware/Brave-Browser/Application/brave.exe"]}}));S(P,"firefox",()=>b({darwin:"firefox",win32:String.raw`C:\Program Files\Mozilla Firefox\firefox.exe`,linux:"firefox"},{wsl:"/mnt/c/Program Files/Mozilla Firefox/firefox.exe"}));S(P,"edge",()=>b({darwin:"microsoft edge",win32:"msedge",linux:["microsoft-edge","microsoft-edge-dev"]},{wsl:"/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"}));S(P,"safari",()=>b({darwin:"Safari"}));Pr=yr});var Mr={};ne(Mr,{activate:()=>Br});module.exports=ir(Mr);var d=f(require("vscode"));var h=f(require("vscode")),Ye="http://docs.unity3d.com/",qe="ScriptReference/30_search.html",Er="?q=",Je="https://docs.microsoft.com/",Ar="en-us/search/index?search=";async function A(e,r){if(e==="open")await h.env.openExternal(h.Uri.parse(r));else{var o,t,n=!1,c="";if(e==="unity"){var i=h.workspace.getConfiguration("unity-tools"),w=i.get("localDocumentationPath","");if(w===""){var a=i.get("documentationVersion","");a===""?o=Ye+qe:o=Ye+a+"/Documentation/"+qe}else c=i.get("localDocumentationViewer",""),o="file:///"+w+"/30_search.html",n=!0;t=o+Er}else e==="msft"&&(o=Je,t=Je+Ar);if(r?r=t+r:r=o,n){let{default:s}=await Promise.resolve().then(()=>(Ke(),Xe));await s(r,{app:{name:c}})}else await h.env.openExternal(h.Uri.parse(r))}return!0}function Cr(e,r,o){return r>=o?"":(e=e.slice(r,o),e=e.trim(),e)}function Qe(e,r,o){A("unity",Cr(e,r,o))}var Ze=f(require("fs"));function je(e,r){for(var o=0;o<r.length;o++){var t=e+r[o];Ze.mkdir(t,function(n){})}}var te=f(require("fs"));function er(e){return d.window.showErrorMessage("Error: "+e,"Open Docs").then(r=>{r==="Open Docs"&&A("unity")})}function Br(e){console.log("Unity Tools extension is now active!");var r=d.commands.registerTextEditorCommand("unity-tools.OpenDocs",(i,w)=>{let a=i.selection;if(!a.isSingleLine){er("Multiple lines selected, please select a single line.");return}let s;if(a.isEmpty?s=i.document.getWordRangeAtPosition(a.active):s=new d.Range(a.start,a.end),s===void 0){er('Nothing is selected. Please select a class, or use "Search Documentation" instead!');return}Qe(i.document.lineAt(s.start.line).text,s.start.character,s.end.character)});e.subscriptions.push(r);var o=d.commands.registerCommand("unity-tools.SearchDocs",()=>{d.window.showInputBox({prompt:"Search Unity Documentation:"}).then(i=>{i!==void 0&&A("unity",i)})});e.subscriptions.push(o);var t=d.commands.registerCommand("unity-tools.SearchMSFTDocs",()=>{d.window.showInputBox({prompt:"Search MSFT Documentation:"}).then(i=>{i!==void 0&&A("msft",i)})});e.subscriptions.push(t);var n=d.commands.registerCommand("unity-tools.OpenVSCodeDocs",()=>{A("open","https://code.visualstudio.com/Docs/runtimes/unity")});e.subscriptions.push(n);var c=d.commands.registerCommand("unity-tools.CreateDirectories",()=>{d.window.showWorkspaceFolderPick().then(i=>{i!==void 0?te.stat(i.uri.fsPath,(w,a)=>{if(w&&w.code==="ENOENT")d.window.showErrorMessage("You do not have access or permission to this file on the hard drive.");else if(a.isDirectory()){var s=i.uri.fsPath+"/Assets/";te.stat(s,(m,l)=>{if(m&&m.code==="ENOENT")d.window.showErrorMessage("Could not find an Assets Folder in the current workspace of VSCode. Please open the Unity root folder of the project you are working on.");else if(m)d.window.showErrorMessage("Something went wrong while checking Assets folder existence: "+m);else if(l.isDirectory()){var v=d.workspace.getConfiguration("unity-tools"),W=v.get("defaultOrganizationFolders");W===void 0?d.window.showErrorMessage("Could not load defaultOrganizationFolders setting."):(je(s,W),d.window.showInformationMessage("Folders generated successfully"))}})}}):d.window.showErrorMessage("You do not have a workspace open in VSCode. Please 'Open Folder' to the root folder of a desired Unity Project.")})});e.subscriptions.push(c)}0&&(module.exports={activate});
+"use strict";
+var __create = Object.create;
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getProtoOf = Object.getPrototypeOf;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __esm = (fn, res) => function __init() {
+  return fn && (res = (0, fn[__getOwnPropNames(fn)[0]])(fn = 0)), res;
+};
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+  }
+  return to;
+};
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+  mod
+));
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+
+// node_modules/is-docker/index.js
+function hasDockerEnv() {
+  try {
+    import_node_fs.default.statSync("/.dockerenv");
+    return true;
+  } catch {
+    return false;
+  }
+}
+function hasDockerCGroup() {
+  try {
+    return import_node_fs.default.readFileSync("/proc/self/cgroup", "utf8").includes("docker");
+  } catch {
+    return false;
+  }
+}
+function isDocker() {
+  if (isDockerCached === void 0) {
+    isDockerCached = hasDockerEnv() || hasDockerCGroup();
+  }
+  return isDockerCached;
+}
+var import_node_fs, isDockerCached;
+var init_is_docker = __esm({
+  "node_modules/is-docker/index.js"() {
+    import_node_fs = __toESM(require("node:fs"), 1);
+  }
+});
+
+// node_modules/is-inside-container/index.js
+function isInsideContainer() {
+  if (cachedResult === void 0) {
+    cachedResult = hasContainerEnv() || isDocker();
+  }
+  return cachedResult;
+}
+var import_node_fs2, cachedResult, hasContainerEnv;
+var init_is_inside_container = __esm({
+  "node_modules/is-inside-container/index.js"() {
+    import_node_fs2 = __toESM(require("node:fs"), 1);
+    init_is_docker();
+    hasContainerEnv = () => {
+      try {
+        import_node_fs2.default.statSync("/run/.containerenv");
+        return true;
+      } catch {
+        return false;
+      }
+    };
+  }
+});
+
+// node_modules/is-wsl/index.js
+var import_node_process, import_node_os, import_node_fs3, isWsl, is_wsl_default;
+var init_is_wsl = __esm({
+  "node_modules/is-wsl/index.js"() {
+    import_node_process = __toESM(require("node:process"), 1);
+    import_node_os = __toESM(require("node:os"), 1);
+    import_node_fs3 = __toESM(require("node:fs"), 1);
+    init_is_inside_container();
+    isWsl = () => {
+      if (import_node_process.default.platform !== "linux") {
+        return false;
+      }
+      if (import_node_os.default.release().toLowerCase().includes("microsoft")) {
+        if (isInsideContainer()) {
+          return false;
+        }
+        return true;
+      }
+      try {
+        if (import_node_fs3.default.readFileSync("/proc/version", "utf8").toLowerCase().includes("microsoft")) {
+          return !isInsideContainer();
+        }
+      } catch {
+      }
+      if (import_node_fs3.default.existsSync("/proc/sys/fs/binfmt_misc/WSLInterop") || import_node_fs3.default.existsSync("/run/WSL")) {
+        return !isInsideContainer();
+      }
+      return false;
+    };
+    is_wsl_default = import_node_process.default.env.__IS_WSL_TEST__ ? isWsl : isWsl();
+  }
+});
+
+// node_modules/powershell-utils/index.js
+var import_node_process2, import_node_buffer, import_node_util, import_node_child_process, execFile, powerShellPath, executePowerShell;
+var init_powershell_utils = __esm({
+  "node_modules/powershell-utils/index.js"() {
+    import_node_process2 = __toESM(require("node:process"), 1);
+    import_node_buffer = require("node:buffer");
+    import_node_util = require("node:util");
+    import_node_child_process = __toESM(require("node:child_process"), 1);
+    execFile = (0, import_node_util.promisify)(import_node_child_process.default.execFile);
+    powerShellPath = () => `${import_node_process2.default.env.SYSTEMROOT || import_node_process2.default.env.windir || String.raw`C:\Windows`}\\System32\\WindowsPowerShell\\v1.0\\powershell.exe`;
+    executePowerShell = async (command, options = {}) => {
+      const {
+        powerShellPath: psPath,
+        ...execFileOptions
+      } = options;
+      const encodedCommand = executePowerShell.encodeCommand(command);
+      return execFile(
+        psPath ?? powerShellPath(),
+        [
+          ...executePowerShell.argumentsPrefix,
+          encodedCommand
+        ],
+        {
+          encoding: "utf8",
+          ...execFileOptions
+        }
+      );
+    };
+    executePowerShell.argumentsPrefix = [
+      "-NoProfile",
+      "-NonInteractive",
+      "-ExecutionPolicy",
+      "Bypass",
+      "-EncodedCommand"
+    ];
+    executePowerShell.encodeCommand = (command) => import_node_buffer.Buffer.from(command, "utf16le").toString("base64");
+    executePowerShell.escapeArgument = (value) => `'${String(value).replaceAll("'", "''")}'`;
+  }
+});
+
+// node_modules/wsl-utils/utilities.js
+function parseMountPointFromConfig(content) {
+  for (const line of content.split("\n")) {
+    if (/^\s*#/.test(line)) {
+      continue;
+    }
+    const match = /^\s*root\s*=\s*(?<mountPoint>"[^"]*"|'[^']*'|[^#]*)/.exec(line);
+    if (!match) {
+      continue;
+    }
+    return match.groups.mountPoint.trim().replaceAll(/^["']|["']$/g, "");
+  }
+}
+var init_utilities = __esm({
+  "node_modules/wsl-utils/utilities.js"() {
+  }
+});
+
+// node_modules/wsl-utils/index.js
+var import_node_util2, import_node_child_process2, import_promises, execFile2, wslDrivesMountPoint, powerShellPathFromWsl, powerShellPath2, canAccessPowerShellPromise, canAccessPowerShell, wslDefaultBrowser, convertWslPathToWindows;
+var init_wsl_utils = __esm({
+  "node_modules/wsl-utils/index.js"() {
+    import_node_util2 = require("node:util");
+    import_node_child_process2 = __toESM(require("node:child_process"), 1);
+    import_promises = __toESM(require("node:fs/promises"), 1);
+    init_is_wsl();
+    init_powershell_utils();
+    init_utilities();
+    init_is_wsl();
+    execFile2 = (0, import_node_util2.promisify)(import_node_child_process2.default.execFile);
+    wslDrivesMountPoint = /* @__PURE__ */ (() => {
+      const defaultMountPoint = "/mnt/";
+      let mountPoint;
+      return async function() {
+        if (mountPoint) {
+          return mountPoint;
+        }
+        const configFilePath = "/etc/wsl.conf";
+        let isConfigFileExists = false;
+        try {
+          await import_promises.default.access(configFilePath, import_promises.constants.F_OK);
+          isConfigFileExists = true;
+        } catch {
+        }
+        if (!isConfigFileExists) {
+          return defaultMountPoint;
+        }
+        const configContent = await import_promises.default.readFile(configFilePath, { encoding: "utf8" });
+        const parsedMountPoint = parseMountPointFromConfig(configContent);
+        if (parsedMountPoint === void 0) {
+          return defaultMountPoint;
+        }
+        mountPoint = parsedMountPoint;
+        mountPoint = mountPoint.endsWith("/") ? mountPoint : `${mountPoint}/`;
+        return mountPoint;
+      };
+    })();
+    powerShellPathFromWsl = async () => {
+      const mountPoint = await wslDrivesMountPoint();
+      return `${mountPoint}c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe`;
+    };
+    powerShellPath2 = is_wsl_default ? powerShellPathFromWsl : powerShellPath;
+    canAccessPowerShell = async () => {
+      canAccessPowerShellPromise ??= (async () => {
+        try {
+          const psPath = await powerShellPath2();
+          await import_promises.default.access(psPath, import_promises.constants.X_OK);
+          return true;
+        } catch {
+          return false;
+        }
+      })();
+      return canAccessPowerShellPromise;
+    };
+    wslDefaultBrowser = async () => {
+      const psPath = await powerShellPath2();
+      const command = String.raw`(Get-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\Shell\Associations\UrlAssociations\http\UserChoice").ProgId`;
+      const { stdout } = await executePowerShell(command, { powerShellPath: psPath });
+      return stdout.trim();
+    };
+    convertWslPathToWindows = async (path2) => {
+      if (/^[a-z]+:\/\//i.test(path2)) {
+        return path2;
+      }
+      try {
+        const { stdout } = await execFile2("wslpath", ["-aw", path2], { encoding: "utf8" });
+        return stdout.trim();
+      } catch {
+        return path2;
+      }
+    };
+  }
+});
+
+// node_modules/define-lazy-prop/index.js
+function defineLazyProperty(object, propertyName, valueGetter) {
+  const define = (value) => Object.defineProperty(object, propertyName, { value, enumerable: true, writable: true });
+  Object.defineProperty(object, propertyName, {
+    configurable: true,
+    enumerable: true,
+    get() {
+      const result = valueGetter();
+      define(result);
+      return result;
+    },
+    set(value) {
+      define(value);
+    }
+  });
+  return object;
+}
+var init_define_lazy_prop = __esm({
+  "node_modules/define-lazy-prop/index.js"() {
+  }
+});
+
+// node_modules/default-browser-id/index.js
+async function defaultBrowserId() {
+  if (import_node_process3.default.platform !== "darwin") {
+    throw new Error("macOS only");
+  }
+  const { stdout } = await execFileAsync("defaults", ["read", "com.apple.LaunchServices/com.apple.launchservices.secure", "LSHandlers"]);
+  const match = /LSHandlerRoleAll = "(?!-)(?<id>[^"]+?)";\s+?LSHandlerURLScheme = (?:http|https);/.exec(stdout);
+  const browserId = match?.groups.id ?? "com.apple.Safari";
+  if (browserId === "com.apple.safari") {
+    return "com.apple.Safari";
+  }
+  return browserId;
+}
+var import_node_util3, import_node_process3, import_node_child_process3, execFileAsync;
+var init_default_browser_id = __esm({
+  "node_modules/default-browser-id/index.js"() {
+    import_node_util3 = require("node:util");
+    import_node_process3 = __toESM(require("node:process"), 1);
+    import_node_child_process3 = require("node:child_process");
+    execFileAsync = (0, import_node_util3.promisify)(import_node_child_process3.execFile);
+  }
+});
+
+// node_modules/run-applescript/index.js
+async function runAppleScript(script, { humanReadableOutput = true, signal } = {}) {
+  if (import_node_process4.default.platform !== "darwin") {
+    throw new Error("macOS only");
+  }
+  const outputArguments = humanReadableOutput ? [] : ["-ss"];
+  const execOptions = {};
+  if (signal) {
+    execOptions.signal = signal;
+  }
+  const { stdout } = await execFileAsync2("osascript", ["-e", script, outputArguments], execOptions);
+  return stdout.trim();
+}
+var import_node_process4, import_node_util4, import_node_child_process4, execFileAsync2;
+var init_run_applescript = __esm({
+  "node_modules/run-applescript/index.js"() {
+    import_node_process4 = __toESM(require("node:process"), 1);
+    import_node_util4 = require("node:util");
+    import_node_child_process4 = require("node:child_process");
+    execFileAsync2 = (0, import_node_util4.promisify)(import_node_child_process4.execFile);
+  }
+});
+
+// node_modules/bundle-name/index.js
+async function bundleName(bundleId) {
+  return runAppleScript(`tell application "Finder" to set app_path to application file id "${bundleId}" as string
+tell application "System Events" to get value of property list item "CFBundleName" of property list file (app_path & ":Contents:Info.plist")`);
+}
+var init_bundle_name = __esm({
+  "node_modules/bundle-name/index.js"() {
+    init_run_applescript();
+  }
+});
+
+// node_modules/default-browser/windows.js
+async function defaultBrowser(_execFileAsync = execFileAsync3) {
+  const { stdout } = await _execFileAsync("reg", [
+    "QUERY",
+    " HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\Shell\\Associations\\UrlAssociations\\http\\UserChoice",
+    "/v",
+    "ProgId"
+  ]);
+  const match = /ProgId\s*REG_SZ\s*(?<id>\S+)/.exec(stdout);
+  if (!match) {
+    throw new UnknownBrowserError(`Cannot find Windows browser in stdout: ${JSON.stringify(stdout)}`);
+  }
+  const { id } = match.groups;
+  const dotIndex = id.lastIndexOf(".");
+  const hyphenIndex = id.lastIndexOf("-");
+  const baseIdByDot = dotIndex === -1 ? void 0 : id.slice(0, dotIndex);
+  const baseIdByHyphen = hyphenIndex === -1 ? void 0 : id.slice(0, hyphenIndex);
+  return windowsBrowserProgIds[id] ?? windowsBrowserProgIds[baseIdByDot] ?? windowsBrowserProgIds[baseIdByHyphen] ?? { name: id, id };
+}
+var import_node_util5, import_node_child_process5, execFileAsync3, windowsBrowserProgIds, _windowsBrowserProgIdMap, UnknownBrowserError;
+var init_windows = __esm({
+  "node_modules/default-browser/windows.js"() {
+    import_node_util5 = require("node:util");
+    import_node_child_process5 = require("node:child_process");
+    execFileAsync3 = (0, import_node_util5.promisify)(import_node_child_process5.execFile);
+    windowsBrowserProgIds = {
+      MSEdgeHTM: { name: "Edge", id: "com.microsoft.edge" },
+      // The missing `L` is correct.
+      MSEdgeBHTML: { name: "Edge Beta", id: "com.microsoft.edge.beta" },
+      MSEdgeDHTML: { name: "Edge Dev", id: "com.microsoft.edge.dev" },
+      AppXq0fevzme2pys62n3e0fbqa7peapykr8v: { name: "Edge", id: "com.microsoft.edge.old" },
+      ChromeHTML: { name: "Chrome", id: "com.google.chrome" },
+      ChromeBHTML: { name: "Chrome Beta", id: "com.google.chrome.beta" },
+      ChromeDHTML: { name: "Chrome Dev", id: "com.google.chrome.dev" },
+      ChromiumHTM: { name: "Chromium", id: "org.chromium.Chromium" },
+      BraveHTML: { name: "Brave", id: "com.brave.Browser" },
+      BraveBHTML: { name: "Brave Beta", id: "com.brave.Browser.beta" },
+      BraveDHTML: { name: "Brave Dev", id: "com.brave.Browser.dev" },
+      BraveSSHTM: { name: "Brave Nightly", id: "com.brave.Browser.nightly" },
+      FirefoxURL: { name: "Firefox", id: "org.mozilla.firefox" },
+      OperaStable: { name: "Opera", id: "com.operasoftware.Opera" },
+      VivaldiHTM: { name: "Vivaldi", id: "com.vivaldi.Vivaldi" },
+      "IE.HTTP": { name: "Internet Explorer", id: "com.microsoft.ie" }
+    };
+    _windowsBrowserProgIdMap = new Map(Object.entries(windowsBrowserProgIds));
+    UnknownBrowserError = class extends Error {
+    };
+  }
+});
+
+// node_modules/default-browser/index.js
+async function defaultBrowser2() {
+  if (import_node_process5.default.platform === "darwin") {
+    const id = await defaultBrowserId();
+    const name = await bundleName(id);
+    return { name, id };
+  }
+  if (import_node_process5.default.platform === "linux") {
+    const { stdout } = await execFileAsync4("xdg-mime", ["query", "default", "x-scheme-handler/http"]);
+    const id = stdout.trim();
+    const name = titleize(id.replace(/.desktop$/, "").replace("-", " "));
+    return { name, id };
+  }
+  if (import_node_process5.default.platform === "win32") {
+    return defaultBrowser();
+  }
+  throw new Error("Only macOS, Linux, and Windows are supported");
+}
+var import_node_util6, import_node_process5, import_node_child_process6, execFileAsync4, titleize;
+var init_default_browser = __esm({
+  "node_modules/default-browser/index.js"() {
+    import_node_util6 = require("node:util");
+    import_node_process5 = __toESM(require("node:process"), 1);
+    import_node_child_process6 = require("node:child_process");
+    init_default_browser_id();
+    init_bundle_name();
+    init_windows();
+    init_windows();
+    execFileAsync4 = (0, import_node_util6.promisify)(import_node_child_process6.execFile);
+    titleize = (string) => string.toLowerCase().replaceAll(/(?:^|\s|-)\S/g, (x) => x.toUpperCase());
+  }
+});
+
+// node_modules/is-in-ssh/index.js
+var import_node_process6, isInSsh, is_in_ssh_default;
+var init_is_in_ssh = __esm({
+  "node_modules/is-in-ssh/index.js"() {
+    import_node_process6 = __toESM(require("node:process"), 1);
+    isInSsh = Boolean(import_node_process6.default.env.SSH_CONNECTION || import_node_process6.default.env.SSH_CLIENT || import_node_process6.default.env.SSH_TTY);
+    is_in_ssh_default = isInSsh;
+  }
+});
+
+// node_modules/open/index.js
+var open_exports = {};
+__export(open_exports, {
+  apps: () => apps,
+  default: () => open_default,
+  openApp: () => openApp
+});
+function detectArchBinary(binary) {
+  if (typeof binary === "string" || Array.isArray(binary)) {
+    return binary;
+  }
+  const { [arch]: archBinary } = binary;
+  if (!archBinary) {
+    throw new Error(`${arch} is not supported`);
+  }
+  return archBinary;
+}
+function detectPlatformBinary({ [platform]: platformBinary }, { wsl } = {}) {
+  if (wsl && is_wsl_default) {
+    return detectArchBinary(wsl);
+  }
+  if (!platformBinary) {
+    throw new Error(`${platform} is not supported`);
+  }
+  return detectArchBinary(platformBinary);
+}
+var import_node_process7, import_node_path, import_node_url, import_node_child_process7, import_promises2, import_meta, fallbackAttemptSymbol, __dirname, localXdgOpenPath, platform, arch, tryEachApp, baseOpen, open, openApp, apps, open_default;
+var init_open = __esm({
+  "node_modules/open/index.js"() {
+    import_node_process7 = __toESM(require("node:process"), 1);
+    import_node_path = __toESM(require("node:path"), 1);
+    import_node_url = require("node:url");
+    import_node_child_process7 = __toESM(require("node:child_process"), 1);
+    import_promises2 = __toESM(require("node:fs/promises"), 1);
+    init_wsl_utils();
+    init_powershell_utils();
+    init_define_lazy_prop();
+    init_default_browser();
+    init_is_inside_container();
+    init_is_in_ssh();
+    import_meta = {};
+    fallbackAttemptSymbol = /* @__PURE__ */ Symbol("fallbackAttempt");
+    __dirname = import_meta.url ? import_node_path.default.dirname((0, import_node_url.fileURLToPath)(import_meta.url)) : "";
+    localXdgOpenPath = import_node_path.default.join(__dirname, "xdg-open");
+    ({ platform, arch } = import_node_process7.default);
+    tryEachApp = async (apps2, opener) => {
+      if (apps2.length === 0) {
+        return;
+      }
+      const errors = [];
+      for (const app of apps2) {
+        try {
+          return await opener(app);
+        } catch (error) {
+          errors.push(error);
+        }
+      }
+      throw new AggregateError(errors, "Failed to open in all supported apps");
+    };
+    baseOpen = async (options) => {
+      options = {
+        wait: false,
+        background: false,
+        newInstance: false,
+        allowNonzeroExitCode: false,
+        ...options
+      };
+      const isFallbackAttempt = options[fallbackAttemptSymbol] === true;
+      delete options[fallbackAttemptSymbol];
+      if (Array.isArray(options.app)) {
+        return tryEachApp(options.app, (singleApp) => baseOpen({
+          ...options,
+          app: singleApp,
+          [fallbackAttemptSymbol]: true
+        }));
+      }
+      let { name: app, arguments: appArguments = [] } = options.app ?? {};
+      appArguments = [...appArguments];
+      if (Array.isArray(app)) {
+        return tryEachApp(app, (appName) => baseOpen({
+          ...options,
+          app: {
+            name: appName,
+            arguments: appArguments
+          },
+          [fallbackAttemptSymbol]: true
+        }));
+      }
+      if (app === "browser" || app === "browserPrivate") {
+        const ids = {
+          "com.google.chrome": "chrome",
+          "google-chrome.desktop": "chrome",
+          "com.brave.browser": "brave",
+          "org.mozilla.firefox": "firefox",
+          "firefox.desktop": "firefox",
+          "com.microsoft.msedge": "edge",
+          "com.microsoft.edge": "edge",
+          "com.microsoft.edgemac": "edge",
+          "microsoft-edge.desktop": "edge",
+          "com.apple.safari": "safari"
+        };
+        const flags = {
+          chrome: "--incognito",
+          brave: "--incognito",
+          firefox: "--private-window",
+          edge: "--inPrivate"
+          // Safari doesn't support private mode via command line
+        };
+        let browser;
+        if (is_wsl_default) {
+          const progId = await wslDefaultBrowser();
+          const browserInfo = _windowsBrowserProgIdMap.get(progId);
+          browser = browserInfo ?? {};
+        } else {
+          browser = await defaultBrowser2();
+        }
+        if (browser.id in ids) {
+          const browserName = ids[browser.id.toLowerCase()];
+          if (app === "browserPrivate") {
+            if (browserName === "safari") {
+              throw new Error("Safari doesn't support opening in private mode via command line");
+            }
+            appArguments.push(flags[browserName]);
+          }
+          return baseOpen({
+            ...options,
+            app: {
+              name: apps[browserName],
+              arguments: appArguments
+            }
+          });
+        }
+        throw new Error(`${browser.name} is not supported as a default browser`);
+      }
+      let command;
+      const cliArguments = [];
+      const childProcessOptions = {};
+      let shouldUseWindowsInWsl = false;
+      if (is_wsl_default && !isInsideContainer() && !is_in_ssh_default && !app) {
+        shouldUseWindowsInWsl = await canAccessPowerShell();
+      }
+      if (platform === "darwin") {
+        command = "open";
+        if (options.wait) {
+          cliArguments.push("--wait-apps");
+        }
+        if (options.background) {
+          cliArguments.push("--background");
+        }
+        if (options.newInstance) {
+          cliArguments.push("--new");
+        }
+        if (app) {
+          cliArguments.push("-a", app);
+        }
+      } else if (platform === "win32" || shouldUseWindowsInWsl) {
+        command = await powerShellPath2();
+        cliArguments.push(...executePowerShell.argumentsPrefix);
+        if (!is_wsl_default) {
+          childProcessOptions.windowsVerbatimArguments = true;
+        }
+        if (is_wsl_default && options.target) {
+          options.target = await convertWslPathToWindows(options.target);
+        }
+        const encodedArguments = ["$ProgressPreference = 'SilentlyContinue';", "Start"];
+        if (options.wait) {
+          encodedArguments.push("-Wait");
+        }
+        if (app) {
+          encodedArguments.push(executePowerShell.escapeArgument(app));
+          if (options.target) {
+            appArguments.push(options.target);
+          }
+        } else if (options.target) {
+          encodedArguments.push(executePowerShell.escapeArgument(options.target));
+        }
+        if (appArguments.length > 0) {
+          appArguments = appArguments.map((argument) => executePowerShell.escapeArgument(argument));
+          encodedArguments.push("-ArgumentList", appArguments.join(","));
+        }
+        options.target = executePowerShell.encodeCommand(encodedArguments.join(" "));
+        if (!options.wait) {
+          childProcessOptions.stdio = "ignore";
+        }
+      } else {
+        if (app) {
+          command = app;
+        } else {
+          const isBundled = !__dirname || __dirname === "/";
+          let exeLocalXdgOpen = false;
+          try {
+            await import_promises2.default.access(localXdgOpenPath, import_promises2.constants.X_OK);
+            exeLocalXdgOpen = true;
+          } catch {
+          }
+          const useSystemXdgOpen = import_node_process7.default.versions.electron ?? (platform === "android" || isBundled || !exeLocalXdgOpen);
+          command = useSystemXdgOpen ? "xdg-open" : localXdgOpenPath;
+        }
+        if (appArguments.length > 0) {
+          cliArguments.push(...appArguments);
+        }
+        if (!options.wait) {
+          childProcessOptions.stdio = "ignore";
+          childProcessOptions.detached = true;
+        }
+      }
+      if (platform === "darwin" && appArguments.length > 0) {
+        cliArguments.push("--args", ...appArguments);
+      }
+      if (options.target) {
+        cliArguments.push(options.target);
+      }
+      const subprocess = import_node_child_process7.default.spawn(command, cliArguments, childProcessOptions);
+      if (options.wait) {
+        return new Promise((resolve, reject) => {
+          subprocess.once("error", reject);
+          subprocess.once("close", (exitCode) => {
+            if (!options.allowNonzeroExitCode && exitCode !== 0) {
+              reject(new Error(`Exited with code ${exitCode}`));
+              return;
+            }
+            resolve(subprocess);
+          });
+        });
+      }
+      if (isFallbackAttempt) {
+        return new Promise((resolve, reject) => {
+          subprocess.once("error", reject);
+          subprocess.once("spawn", () => {
+            subprocess.once("close", (exitCode) => {
+              subprocess.off("error", reject);
+              if (exitCode !== 0) {
+                reject(new Error(`Exited with code ${exitCode}`));
+                return;
+              }
+              subprocess.unref();
+              resolve(subprocess);
+            });
+          });
+        });
+      }
+      subprocess.unref();
+      return new Promise((resolve, reject) => {
+        subprocess.once("error", reject);
+        subprocess.once("spawn", () => {
+          subprocess.off("error", reject);
+          resolve(subprocess);
+        });
+      });
+    };
+    open = (target, options) => {
+      if (typeof target !== "string") {
+        throw new TypeError("Expected a `target`");
+      }
+      return baseOpen({
+        ...options,
+        target
+      });
+    };
+    openApp = (name, options) => {
+      if (typeof name !== "string" && !Array.isArray(name)) {
+        throw new TypeError("Expected a valid `name`");
+      }
+      const { arguments: appArguments = [] } = options ?? {};
+      if (appArguments !== void 0 && appArguments !== null && !Array.isArray(appArguments)) {
+        throw new TypeError("Expected `appArguments` as Array type");
+      }
+      return baseOpen({
+        ...options,
+        app: {
+          name,
+          arguments: appArguments
+        }
+      });
+    };
+    apps = {
+      browser: "browser",
+      browserPrivate: "browserPrivate"
+    };
+    defineLazyProperty(apps, "chrome", () => detectPlatformBinary({
+      darwin: "google chrome",
+      win32: "chrome",
+      // `chromium-browser` is the older deb package name used by Ubuntu/Debian before snap.
+      linux: ["google-chrome", "google-chrome-stable", "chromium", "chromium-browser"]
+    }, {
+      wsl: {
+        ia32: "/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe",
+        x64: ["/mnt/c/Program Files/Google/Chrome/Application/chrome.exe", "/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe"]
+      }
+    }));
+    defineLazyProperty(apps, "brave", () => detectPlatformBinary({
+      darwin: "brave browser",
+      win32: "brave",
+      linux: ["brave-browser", "brave"]
+    }, {
+      wsl: {
+        ia32: "/mnt/c/Program Files (x86)/BraveSoftware/Brave-Browser/Application/brave.exe",
+        x64: ["/mnt/c/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe", "/mnt/c/Program Files (x86)/BraveSoftware/Brave-Browser/Application/brave.exe"]
+      }
+    }));
+    defineLazyProperty(apps, "firefox", () => detectPlatformBinary({
+      darwin: "firefox",
+      win32: String.raw`C:\Program Files\Mozilla Firefox\firefox.exe`,
+      linux: "firefox"
+    }, {
+      wsl: "/mnt/c/Program Files/Mozilla Firefox/firefox.exe"
+    }));
+    defineLazyProperty(apps, "edge", () => detectPlatformBinary({
+      darwin: "microsoft edge",
+      win32: "msedge",
+      linux: ["microsoft-edge", "microsoft-edge-dev"]
+    }, {
+      wsl: "/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"
+    }));
+    defineLazyProperty(apps, "safari", () => detectPlatformBinary({
+      darwin: "Safari"
+    }));
+    open_default = open;
+  }
+});
+
+// src/extension.ts
+var extension_exports = {};
+__export(extension_exports, {
+  activate: () => activate
+});
+module.exports = __toCommonJS(extension_exports);
+var vscode2 = __toESM(require("vscode"));
+
+// src/search.ts
+var vscode = __toESM(require("vscode"));
+var unity_search_root = "http://docs.unity3d.com/";
+var unity_search_path = "ScriptReference/30_search.html";
+var unity_search_url = "?q=";
+var msft_search = "https://docs.microsoft.com/";
+var msft_search_url = "en-us/search/index?search=";
+async function openURL(search_base, s) {
+  if (search_base === "open") {
+    await vscode.env.openExternal(vscode.Uri.parse(s));
+  } else {
+    var search_blank_url, search_url;
+    var local = false;
+    var appPath = "";
+    if (search_base === "unity") {
+      var settings = vscode.workspace.getConfiguration("unity-tools");
+      var localPath = settings.get("localDocumentationPath", "");
+      if (localPath === "") {
+        var documentationVersion = settings.get("documentationVersion", "");
+        if (documentationVersion === "") {
+          search_blank_url = unity_search_root + unity_search_path;
+        } else {
+          search_blank_url = unity_search_root + documentationVersion + "/Documentation/" + unity_search_path;
+        }
+      } else {
+        appPath = settings.get("localDocumentationViewer", "");
+        search_blank_url = "file:///" + localPath + "/30_search.html";
+        local = true;
+      }
+      search_url = search_blank_url + unity_search_url;
+    } else if (search_base === "msft") {
+      search_blank_url = msft_search;
+      search_url = msft_search + msft_search_url;
+    }
+    if (!s) {
+      s = search_blank_url;
+    } else {
+      s = search_url + s;
+    }
+    if (local) {
+      const { default: openApp2 } = await Promise.resolve().then(() => (init_open(), open_exports));
+      await openApp2(s, { app: { name: appPath } });
+    } else {
+      await vscode.env.openExternal(vscode.Uri.parse(s));
+    }
+  }
+  return true;
+}
+function prepareInput(input, start, end) {
+  if (start >= end) {
+    return "";
+  }
+  input = input.slice(start, end);
+  input = input.trim();
+  return input;
+}
+function openUnityDocs(input, start, end) {
+  openURL("unity", prepareInput(input, start, end));
+}
+
+// src/directories.ts
+var fs6 = __toESM(require("fs"));
+function GenerateOrganizationFolders(path2, generationFolders) {
+  for (var j = 0; j < generationFolders.length; j++) {
+    var dir = path2 + generationFolders[j];
+    fs6.mkdir(dir, function(_err) {
+    });
+  }
+}
+
+// src/extension.ts
+var fs7 = __toESM(require("fs"));
+function openDocErrorMessage(str) {
+  return vscode2.window.showErrorMessage("Error: " + str, "Open Docs").then((item) => {
+    if (item === "Open Docs") {
+      openURL("unity");
+    }
+  });
+}
+function activate(context) {
+  console.log("Unity Tools extension is now active!");
+  var open_docs = vscode2.commands.registerTextEditorCommand(
+    "unity-tools.OpenDocs",
+    (textEditor, edit) => {
+      let selection = textEditor.selection;
+      if (!selection.isSingleLine) {
+        openDocErrorMessage("Multiple lines selected, please select a single line.");
+        return;
+      }
+      let range = void 0;
+      if (!selection.isEmpty) {
+        range = new vscode2.Range(selection.start, selection.end);
+      } else {
+        range = textEditor.document.getWordRangeAtPosition(selection.active);
+      }
+      if (range === void 0) {
+        openDocErrorMessage('Nothing is selected. Please select a class, or use "Search Documentation" instead!');
+        return;
+      }
+      openUnityDocs(textEditor.document.lineAt(range.start.line).text, range.start.character, range.end.character);
+    }
+  );
+  context.subscriptions.push(open_docs);
+  var searchUnityDocs = vscode2.commands.registerCommand("unity-tools.SearchDocs", () => {
+    vscode2.window.showInputBox({
+      prompt: "Search Unity Documentation:"
+    }).then((result) => {
+      if (result !== void 0) {
+        openURL("unity", result);
+      }
+    });
+  });
+  context.subscriptions.push(searchUnityDocs);
+  var searchMSDocs = vscode2.commands.registerCommand("unity-tools.SearchMSFTDocs", () => {
+    vscode2.window.showInputBox({
+      prompt: "Search MSFT Documentation:"
+    }).then((result) => {
+      if (result !== void 0) {
+        openURL("msft", result);
+      }
+    });
+  });
+  context.subscriptions.push(searchMSDocs);
+  var open_vscode_docs = vscode2.commands.registerCommand("unity-tools.OpenVSCodeDocs", () => {
+    openURL("open", "https://code.visualstudio.com/Docs/runtimes/unity");
+  });
+  context.subscriptions.push(open_vscode_docs);
+  var create_Directories = vscode2.commands.registerCommand("unity-tools.CreateDirectories", () => {
+    vscode2.window.showWorkspaceFolderPick().then((root) => {
+      if (root !== void 0) {
+        fs7.stat(root.uri.fsPath, (err, stats) => {
+          if (err && err.code === "ENOENT") {
+            vscode2.window.showErrorMessage("You do not have access or permission to this file on the hard drive.");
+          } else if (stats.isDirectory()) {
+            var rootPath = root.uri.fsPath + "/Assets/";
+            fs7.stat(rootPath, (err2, stats2) => {
+              if (err2 && err2.code === "ENOENT") {
+                vscode2.window.showErrorMessage("Could not find an Assets Folder in the current workspace of VSCode. Please open the Unity root folder of the project you are working on.");
+              } else if (err2) {
+                vscode2.window.showErrorMessage("Something went wrong while checking Assets folder existence: " + err2);
+              } else if (stats2.isDirectory()) {
+                var settings = vscode2.workspace.getConfiguration("unity-tools");
+                var folderList = settings.get("defaultOrganizationFolders");
+                if (folderList === void 0) {
+                  vscode2.window.showErrorMessage("Could not load defaultOrganizationFolders setting.");
+                } else {
+                  GenerateOrganizationFolders(rootPath, folderList);
+                  vscode2.window.showInformationMessage("Folders generated successfully");
+                }
+              }
+            });
+          }
+        });
+      } else {
+        vscode2.window.showErrorMessage("You do not have a workspace open in VSCode. Please 'Open Folder' to the root folder of a desired Unity Project.");
+      }
+    });
+  });
+  context.subscriptions.push(create_Directories);
+}
+// Annotate the CommonJS export names for ESM import in node:
+0 && (module.exports = {
+  activate
+});
+//# sourceMappingURL=extension.js.map
