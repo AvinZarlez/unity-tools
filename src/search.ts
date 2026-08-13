@@ -9,7 +9,8 @@ import * as vscode from 'vscode';
 
 export async function openURL(search_base?: string, s?: string) {
 	if (search_base === "open") { await vscode.env.openExternal(vscode.Uri.parse(s as string)); } else {
-		var search_blank_url, search_url;
+		let search_blank_url = "";
+		let search_url = "";
 		var local:boolean = false;
 		var appPath:string = "";
 
@@ -20,7 +21,7 @@ export async function openURL(search_base?: string, s?: string) {
 			if (localPath === "") {
 				var documentationVersion: string = settings.get('documentationVersion',"");
 				if (documentationVersion === "") {
-					search_blank_url = unity_search_root+unity_search_path;
+					search_blank_url = unity_search_root + unity_search_path;
 				}
 				else
 				{
@@ -30,10 +31,11 @@ export async function openURL(search_base?: string, s?: string) {
 			else
 			{
 				appPath = settings.get('localDocumentationViewer',"");
-				search_blank_url = "file:///"+localPath+"/30_search.html";
+				const cleanPath = localPath.endsWith('/') ? localPath.slice(0, -1) : localPath;
+				search_blank_url = `file://${cleanPath}/30_search.html`;
 				local = true;
 			}
-			search_url = search_blank_url+unity_search_url;
+			search_url = search_blank_url + unity_search_url;
 		}
 		else if (search_base === "msft") {
 			search_blank_url = msft_search;
@@ -41,7 +43,7 @@ export async function openURL(search_base?: string, s?: string) {
 		}
 
 		if (!s) { s = search_blank_url; }
-		else { s = search_url + s; }
+		else { s = search_url + encodeURIComponent(s); }
 
 		if (local) {
 			const { default: openApp } = await import('open');
